@@ -6,7 +6,6 @@
     <title>Интернет-магазин "Домик творчества"</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/shop.css">
-    <script defer src="js/shop-script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -28,7 +27,9 @@
             </ul>
           </nav>
         </div>
-      <img class="logo" src="img/logo.png" alt="логотип">
+      <button class="btn-reset">
+        <a href="index.html"><img class="logo" src="img/logo.png" alt="логотип"></a>
+      </button>  
       <div class="header__social">
         <div class="header__search">
           <input type="text" id="searchInput" placeholder="Поиск по названию товара">
@@ -58,9 +59,34 @@
     </header>
 
     <main>
+      <section class="navigation">
+        <div class="container-main navigation__container">
+          <button class="navigation__btn" id="popularButton">Популярное</button>
+          <button class="navigation__btn" id="postcardsButton">Открытки</button>
+          <button class="navigation__btn" id="stickersButton">Стикеры</button>
+          <button class="navigation__btn" id="decoratingButton">Украшения</button>
+          <button class="navigation__btn" id="accessoriesButton">Аксессуары</button>
+          <button class="navigation__btn" id="setsButton">Наборы</button>
+        </div>    
+      </section>
       <section class="container-main products" id="products">
       </section>
+      <div id="popup" class="popup">
+        <div class="popup__content">
+          <button class="btn-reset close" id="close">Закрыть</button>
+          <div class="popup__content-left">
+            <img class="popup__img" src="№" alt="Изображение товара" id="popupImage">
+            <h3 class="popup__h3" id="popupName"></h3>
+            <p class="popup__price" id="popupPrice"></p>
+            <button class="btn-reset popup__button">Добавить в корзину</button>
+          </div>
+          <div class="popup__content-right">
+            <p class="popup__descr" id="popupDescription"></p>
+            <p class="popup__material" id="popupMaterial"></p>
+          </div>
+        </div>
+      </div>
     </main>
-
+    <script src="js/shop-script.js"></script>
 </body>
 </html>

@@ -10,22 +10,22 @@ document.getElementById('burger').addEventListener('click', function() {
 
 
 let productsData = [
-    { id: 1, name: 'Стикерпак А5 «Энн с зелёных крыш»', price: 250, image: 'img/stickers-1.jpg', description: 'Описание товара 1' },
-    { id: 2, name: 'Cтикерпак «букет незабудок»', price: 200, image: 'img/stickers-2.jpg', description: 'Описание товара 2' },
-    { id: 3, name: 'Стикерпак «нежные ландыши»', price: 200, image: 'img/stickers-3.jpg', description: 'Описание товара 3' },
-    { id: 4, name: 'Cтикерпак «Крыски»', price: 190, image: 'img/stickers-4.jpg', description: 'Описание товара 4' },
-    { id: 5, name: 'Стикерпак «чай с сиренью»', price: 150, image: 'img/stickers-5.jpg', description: 'Описание товара 5' },
-    { id: 6, name: 'Cтикерпак «Энн с зелёных крыш»', price: 200, image: 'img/stickers-6.jpg', description: 'Описание товара 6' },
-    { id: 7, name: 'Cтикерпак «сельские скетчи»', price: 120, image: 'img/stickers-7.jpg', description: '#' },
-    { id: 8, name: '"Мини пак «домик Элисы»"', price: 100, image: 'img/stickers-8.jpg', description: '#' },
-    { id: 9, name: 'стикерпак «винтажный гербарий»', price: 100, image: 'img/stickers-9.jpg', description: '#' },
-    { id: 10, name: 'стикерпак «осенний уют»', price: 120, image: 'img/stickers-10.jpg', description: '#' },
-    { id: 11, name: 'Стикерпак «зарисовки для дневника»', price: 120, image: 'img/stickers-11.jpg', description: '#' },
-    { id: 12, name: 'Стикербокс «набор мелочей»', price: 120, image: 'img/stickers-12.jpg', description: '#' },
-    { id: 13, name: '«Сюрприз» набор стикеров', price: 120, image: 'img/stickers-13.jpg', description: '#' },
-    { id: 14, name: 'Стикербокс «Лисий»', price: 120, image: 'img/stickers-14.jpg', description: '#' },
-    { id: 15, name: 'Набор наклеек «Букет незабудок»', price: 120, image: 'img/stickers-15.jpg', description: '#' },
-    { id: 16, name: 'Стикербокс «Энн»', price: 120, image: 'img/stickers-16.jpg', description: '#' },
+    { id: 101, name: 'Стикерпак А5 «Энн с зелёных крыш»', price: 250, image: 'img/stickers-1.jpg', description: 'Описание товара 1' },
+    { id: 102, name: 'Cтикерпак «букет незабудок»', price: 200, image: 'img/stickers-2.jpg', description: 'Описание товара 2' },
+    { id: 103, name: 'Стикерпак «нежные ландыши»', price: 200, image: 'img/stickers-3.jpg', description: 'Описание товара 3' },
+    { id: 104, name: 'Cтикерпак «Крыски»', price: 190, image: 'img/stickers-4.jpg', description: 'Описание товара 4' },
+    { id: 105, name: 'Стикерпак «чай с сиренью»', price: 150, image: 'img/stickers-5.jpg', description: 'Описание товара 5' },
+    { id: 106, name: 'Cтикерпак «Энн с зелёных крыш»', price: 200, image: 'img/stickers-6.jpg', description: 'Описание товара 6' },
+    { id: 107, name: 'Cтикерпак «сельские скетчи»', price: 120, image: 'img/stickers-7.jpg', description: '#' },
+    { id: 108, name: '"Мини пак «домик Элисы»"', price: 100, image: 'img/stickers-8.jpg', description: '#' },
+    { id: 109, name: 'стикерпак «винтажный гербарий»', price: 100, image: 'img/stickers-9.jpg', description: '#' },
+    { id: 110, name: 'стикерпак «осенний уют»', price: 120, image: 'img/stickers-10.jpg', description: '#' },
+    { id: 111, name: 'Стикерпак «зарисовки для дневника»', price: 120, image: 'img/stickers-11.jpg', description: '#' },
+    { id: 112, name: 'Стикербокс «набор мелочей»', price: 120, image: 'img/stickers-12.jpg', description: '#' },
+    { id: 113, name: '«Сюрприз» набор стикеров', price: 120, image: 'img/stickers-13.jpg', description: '#' },
+    { id: 114, name: 'Стикербокс «Лисий»', price: 120, image: 'img/stickers-14.jpg', description: '#' },
+    { id: 115, name: 'Набор наклеек «Букет незабудок»', price: 120, image: 'img/stickers-15.jpg', description: '#' },
+    { id: 116, name: 'Стикербокс «Энн»', price: 120, image: 'img/stickers-16.jpg', description: '#' },
     { id: 20, name: 'открытка «царица Эсфирь»', price: 80, image: 'img/postcards-1.jpg', description: '#' },
     { id: 21, name: 'открытка «песнь песней»', price: 80, image: 'img/postcards-2.jpg', description: '#' },
     { id: 22, name: 'Открытка «чаепитие в весеннем саду»', price: 80, image: 'img/postcards-3.jpg', description: '#' },
@@ -58,8 +58,8 @@ function createProductCard(product) {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <h3>${product.name}</h3>
+    <img class="product-img" src="${product.image}" alt="${product.name}">
+    <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
     <p>Цена: ${product.price} руб</p>
     <button class="btn-reset buy-button">Добавить в корзину</button>
   `;
@@ -82,6 +82,8 @@ function displayProducts(products) {
 window.addEventListener('DOMContentLoaded', () => {
   displayProducts(productsData);
 });
+
+//////////////////////////////////////////////////////////////
 
 // Получаем кнопку поиска и инпут поиска
 const searchButton = document.getElementById('search');
@@ -130,3 +132,94 @@ searchInput.addEventListener('input', function (event) {
   const searchText = event.target.value.trim();
   filterProductsByName(searchText);
 });
+
+
+//////////////////////////////////////////////////////////////
+
+// Функция для фильтрации товаров по id
+function filterProductsByCategory(startingDigits) {
+  const filteredProducts = productsData.filter(product => {
+    const productId = product.id.toString();
+    return productId.startsWith(startingDigits);
+  });
+  displayProducts(filteredProducts); // Отображаем отфильтрованные товары
+}
+
+// Получаем кнопки для каждой категории товаров
+const postcardsButton = document.getElementById('postcardsButton');
+const stickersButton = document.getElementById('stickersButton');
+const setsButton = document.getElementById('setsButton');
+const decoratingButton = document.getElementById('decoratingButton');
+const accessoriesButton = document.getElementById('accessoriesButton');
+const popularButton = document.getElementById('popularButton');
+
+// Обработчики событий для каждой кнопки
+postcardsButton.addEventListener('click', function () {
+  filterProductsByCategory('2') || filterProductsByCategory('3');
+});
+
+stickersButton.addEventListener('click', function () {
+  filterProductsByCategory('1');
+});
+
+setsButton.addEventListener('click', function () {
+  filterProductsByCategory('4');
+});
+
+decoratingButton.addEventListener('click', function () {
+  filterProductsByCategory('5');
+});
+
+accessoriesButton.addEventListener('click', function () {
+  filterProductsByCategory('6');
+});
+
+popularButton.addEventListener('click', function () {
+  filterProductsByCategory('7');
+});
+
+//////////////////////////////////////////////////////////////
+
+// Функция для отображения popup с описанием товара
+function showProductPopup(product) {
+  const popup = document.getElementById('popup');
+  const popupImage = document.getElementById('popupImage');
+  const popupName = document.getElementById('popupName');
+  const popupPrice = document.getElementById('popupPrice');
+  const popupDescription = document.getElementById('popupDescription');
+  const popupMaterial = document.getElementById('popupMaterial');
+
+  popupImage.src = product.image;
+  popupName.textContent = product.name;
+  popupPrice.textContent = `Цена: ${product.price} руб`;
+  popupDescription.textContent = product.description;
+  popupMaterial.textContent = `Материал: ${product.material || 'Не указан'}`;
+
+  // Отображаем popup
+  popup.style.display = 'block';
+
+  // Добавляем класс для затемнения заднего фона
+  document.querySelector('.products').classList.add('popup-open');
+}
+
+// Обработчик события нажатия на название товара для отображения popup
+document.getElementById('products').addEventListener('click', function(event) {
+  if (event.target.classList.contains('product-name')) {
+    const productId = event.target.dataset.productId;
+    const product = productsData.find(product => product.id === parseInt(productId));
+    if (product) {
+      showProductPopup(product);
+    }
+  }
+});
+
+// Обработчик события нажатия на кнопку "Закрыть" в popup
+document.getElementById('close').addEventListener('click', function() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+
+  // Удаляем класс для затемнения заднего фона
+  document.querySelector('.products').classList.remove('popup-open');
+});
+
+// //////////////////////////////////////////////////////////////

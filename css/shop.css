@@ -108,6 +108,7 @@ body {
 
 
   .menu {
+    display: none;
     position: absolute;
     top: 25px;
     left: 5px;
@@ -119,6 +120,7 @@ body {
   }
   
   .menu.active {
+    display: block;
     opacity: 1;
   }
   
@@ -154,7 +156,7 @@ body {
 .header {
     background-image: url(../img/body-bg.png);
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .header__container {
@@ -206,6 +208,38 @@ body {
     background-color: #8a8c0b;
 }
 
+/* NAVIGATION */
+
+.navigation {
+  padding: 10px;
+}
+
+.navigation__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navigation__btn {
+  background-color: #9fa10d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.navigation__btn:hover {
+  background-color: #babd0c;
+}
+
+.navigation__btn:active {
+  background-color: #666808;
+}
+
 
 /* PRODUCTS */
 
@@ -226,7 +260,7 @@ body {
     height: auto;
   }
   
-  .product-card img {
+  .product-img {
     margin: 0;
     max-width: 100%;
     height: auto;
@@ -235,13 +269,14 @@ body {
     transition: transform 0.3s ease; /* Добавляем плавный переход */
   }
 
-  .product-card:hover img {
+  .product-img:hover {
     transform: scale(1.1); /* Увеличиваем картинку при наведении */
 }
   
-  .product-card h3 {
+  .product-name {
     font-size: 18px;
    margin-bottom: 10px;
+   cursor: pointer;
    flex-grow: 1; /* Растягиваем заголовок, чтобы кнопка была внизу */
   }
   
@@ -250,7 +285,93 @@ body {
     margin-bottom: 10px;
   }
   
-  .product-card .buy-button {
+  .buy-button {
+    background-color: #9fa10d;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .buy-button:hover {
+    background-color: #babd0c;
+  }
+  
+  .buy-button:active {
+    background-color: #666808;
+  }
+
+
+  /* POPUP */
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  .popup__content {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    width: 55%;
+    height: 90%;
+    overflow-y: auto;
+  }
+
+  .popup__content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .popup__content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .popup__img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+  }
+
+  .popup__price {
+    margin-bottom: 20px;
+  }
+
+  .popup__h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+  
+  .popup__button {
     background-color: #9fa10d;
     color: #fff;
     border: none;
@@ -259,5 +380,11 @@ body {
     cursor: pointer;
   }
 
-
+  .popup__descr {
+    margin-bottom: 30px;
+  }
   
+  /* Затемнение заднего фона при открытом popup */
+  .products.popup-open {
+    filter: blur(2px);
+  }
