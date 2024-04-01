@@ -58,10 +58,10 @@ function createProductCard(product) {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-    <img class="product-img" src="${product.image}" alt="${product.name}">
-    <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
-    <p>Цена: ${product.price} руб</p>
-    <button class="btn-reset buy-button">Добавить в корзину</button>
+      <img class="product-img" src="${product.image}" alt="${product.name}">
+      <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
+      <p>Цена: ${product.price} руб</p>
+      <button class="btn-reset buy-button"  data-product-id="${product.id}">Добавить в корзину</button>
   `;
   return card;
 }
@@ -73,15 +73,37 @@ function displayProducts(products) {
 
   // Добавляем каждую карточку товара в контейнер
   products.forEach(product => {
-    const card = createProductCard(product);
-    productsContainer.appendChild(card);
+      const card = createProductCard(product);
+      productsContainer.appendChild(card);
   });
 }
+
+// Обработчик события для кнопок "Добавить в корзину" на карточках товаров
+document.querySelector('.products').addEventListener('click', function(event) {
+  const button = event.target.closest('.buy-button');
+  if (button) {
+      // Находим родительскую карточку товара
+      const productCard = event.target.closest('.product-card');
+      if (productCard) {
+          // Получаем ID продукта из атрибута data-product-id
+          const productId = parseInt(productCard.querySelector('.product-name').dataset.productId);
+          // Находим объект продукта в массиве по его ID
+          const product = productsData.find(product => product.id === productId);
+          if (product) {
+              // Добавляем продукт в корзину
+              addToCart(product);
+              // Обновляем отображение корзины
+              displayCartItems();
+          }
+      }
+  }
+});
 
 // Отображение карточек товаров при загрузке страницы
 window.addEventListener('DOMContentLoaded', () => {
   displayProducts(productsData);
 });
+
 
 //////////////////////////////////////////////////////////////
 
@@ -223,3 +245,171 @@ document.getElementById('close').addEventListener('click', function() {
 });
 
 // //////////////////////////////////////////////////////////////
+
+
+//СТРАНИЦА КОРЗИНЫ
+
+// Получаем ссылку на кнопку корзины
+const cartButton = document.getElementById('cart');
+
+// Получаем ссылку на блок корзины
+const cartHidden = document.querySelector('.cart__hidden');
+
+// Получаем ссылку на контейнер корзины
+const cartContainer = document.querySelector('.cart__container');
+
+// Получаем ссылку на кнопку "назад" в корзине
+const backButton = document.createElement('button');
+backButton.classList.add('btn-reset', 'back-button');
+backButton.textContent = 'Назад';
+
+// Функция для отображения страницы с корзиной
+function showCartPage() {
+    // Показываем блок корзины
+    cartHidden.style.display = 'block';
+    cartHidden.style.opacity = '1'; // Добавляем эффект появления
+
+    // Показываем кнопку "назад" в контейнере корзины
+    cartContainer.appendChild(backButton);
+
+
+    // Заблокировать скролл на основной странице
+    document.body.style.overflow = 'hidden';
+}
+
+// Функция для скрытия страницы с корзиной
+function hideCartPage() {
+    // Скрываем блок корзины
+    cartHidden.style.display = 'none';
+
+    // Разблокировать скролл на основной странице
+    document.body.style.overflow = 'auto';
+}
+
+// Добавляем обработчик события клика на кнопку корзины
+cartButton.addEventListener('click', showCartPage);
+
+// Добавляем обработчик события клика на кнопку "назад"
+backButton.addEventListener('click', hideCartPage);
+
+
+
+
+
+
+// КОРЗИНА
+
+let cartItems = []; // Инициализация корзины
+
+// Функция для получения корзины из Local Storage
+function getCartFromLocalStorage() {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+}
+
+// Функция для сохранения корзины в Local Storage
+function saveCartToLocalStorage(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Функция для добавления товара в корзину
+function addToCart(product) {
+  let cart = getCartFromLocalStorage();
+  // Проверяем, есть ли уже такой товар в корзине
+  const existingItemIndex = cart.findIndex(item => item.id === product.id);
+  if (existingItemIndex !== -1) {
+      // Если товар уже есть в корзине, увеличиваем его количество
+      cart[existingItemIndex].quantity++;
+  } else {
+      // Иначе добавляем новый товар в корзину
+      cart.push({ ...product, quantity: 1 });
+  }
+  saveCartToLocalStorage(cart);
+}
+
+// Функция для удаления товара из корзины
+function removeFromCart(productId) {
+  let cart = getCartFromLocalStorage();
+  cart = cart.filter(item => item.id !== productId);
+  saveCartToLocalStorage(cart);
+}
+
+
+
+// Функция для отображения товаров в корзине
+function displayCartItems() {
+  const cartItemsContainer = document.querySelector('.cart-items');
+  cartItemsContainer.innerHTML = ''; // Очищаем контейнер товаров
+
+  // Получаем корзину из Local Storage
+  cartItems = getCartFromLocalStorage();
+
+  // Добавляем каждый товар в контейнер
+  cartItems.forEach(item => {
+      const cartItemElement = document.createElement('div');
+      cartItemElement.classList.add('cart-item');
+      cartItemElement.innerHTML = `
+          <div>${item.name}</div>
+          <div>${item.price * item.quantity} руб.</div>
+          <div>
+              <button class="quantity-button" data-action="decrease" data-id="${item.id}">-</button>
+              <span>${item.quantity}</span>
+              <button class="quantity-button" data-action="increase" data-id="${item.id}">+</button>
+          </div>
+          <button class="remove-button" data-id="${item.id}">Удалить</button>
+      `;
+      cartItemsContainer.appendChild(cartItemElement);
+  });
+
+  // Обновляем итоговую стоимость
+  updateTotalPrice();
+}
+
+// Функция для обновления итоговой стоимости
+function updateTotalPrice() {
+  const totalPriceElement = document.getElementById('totalPrice');
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  totalPriceElement.textContent = totalPrice;
+}
+
+// Обработчик события для кнопок увеличения и уменьшения количества товара
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('quantity-button')) {
+      const action = event.target.dataset.action;
+      const itemId = parseInt(event.target.dataset.id);
+
+      const itemIndex = cartItems.findIndex(item => item.id === itemId);
+      if (itemIndex !== -1) {
+          if (action === 'increase') {
+              cartItems[itemIndex].quantity++;
+          } else if (action === 'decrease') {
+              if (cartItems[itemIndex].quantity > 1) {
+                  cartItems[itemIndex].quantity--;
+              } else {
+                  // Если количество товара становится 0, удаляем товар из корзины
+                  cartItems.splice(itemIndex, 1);
+              }
+          }
+          displayCartItems();
+      }
+  }
+});
+
+// Обработчик события для кнопки "Удалить"
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('remove-button')) {
+      const itemId = parseInt(event.target.dataset.id);
+      const itemIndex = cartItems.findIndex(item => item.id === itemId);
+      if (itemIndex !== -1) {
+          cartItems.splice(itemIndex, 1);
+          displayCartItems();
+      }
+  }
+});
+
+// Отображение товаров в корзине при загрузке страницы
+window.addEventListener('DOMContentLoaded', () => {
+  // Получаем корзину из Local Storage при загрузке страницы
+  cartItems = getCartFromLocalStorage();
+  displayCartItems();
+});

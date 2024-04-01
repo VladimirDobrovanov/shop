@@ -388,3 +388,135 @@ body {
   .products.popup-open {
     filter: blur(2px);
   }
+
+
+  /* CART */
+
+
+.cart__hidden {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.cart__container {
+ position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    width: 55%;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+
+.cart__header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+.cart__h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.cart__main {
+    padding: 20px;
+}
+
+.cart__calc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-items {
+    width: 100%;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cart-summary h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.cart-summary button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-summary button:hover {
+    background-color: #0056b3;
+}
+
+.quantity-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-button:hover {
+    background-color: #0056b3;
+}
+
+.remove-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+    background-color: #c82333;
+}
