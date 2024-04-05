@@ -83,7 +83,27 @@
                 </div>
                 <div class="cart-summary">
                     <h2>Итоговая стоимость: <span id="totalPrice">0</span> руб.</h2>
-                    <button id="checkoutButton">Оформить заказ</button>
+                    <div>
+                      <form action="send_email.php" method="post">
+                        <label for="fullname">ФИО:</label><br>
+                        <input type="text" id="fullname" name="fullname" required><br>
+                        <label for="city">Город:</label><br>
+                        <input type="text" id="city" name="city" required><br>
+                        <label for="street">Улица:</label><br>
+                        <input type="text" id="street" name="street" required><br>
+                        <label for="house">Дом:</label><br>
+                        <input type="text" id="house" name="house" required><br>
+                        <label for="building">Литера:</label><br>
+                        <input type="text" id="building" name="building"><br>
+                        <label for="apartment">Квартира:</label><br>
+                        <input type="text" id="apartment" name="apartment"><br>
+                        <label for="zip">Индекс:</label><br>
+                        <input type="text" id="zip" name="zip" required><br>
+                        <label for="phone">Телефон:</label><br>
+                        <input type="tel" id="phone" name="phone" required><br>
+                        <input  id="checkoutButton" type="submit" value="Оформить заказ">
+                      </form>
+                    </div>
                 </div>
             </div>
           </div>

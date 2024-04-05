@@ -269,11 +269,65 @@ function showCartPage() {
     cartHidden.style.display = 'block';
     cartHidden.style.opacity = '1'; // Добавляем эффект появления
 
-    // Показываем кнопку "назад" в контейнере корзины
-    cartContainer.appendChild(backButton);
+  // Показываем кнопку "назад" в контейнере корзины
+  cartContainer.appendChild(backButton);
+ // Формируем содержимое корзины для отправки на почту
+ const cartItems = getCartFromLocalStorage(); // Получаем корзину из Local Storage
+ let cartContent = ''; // Строка для хранения содержимого корзины
+ cartItems.forEach(item => {
+     cartContent += `${item.name}: ${item.quantity} шт., Цена: ${item.price * item.quantity} руб.\n`;
+ });
+ const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-    // Заблокировать скролл на основной странице
-    document.body.style.overflow = 'hidden';
+ // Заблокировать скролл на основной странице
+ document.body.style.overflow = 'hidden';
+
+ // Отправка данных на почту
+ sendEmail(cartContent, totalPrice);
+}
+
+// Функция для отправки данных на почту
+function sendEmail(cartContent, totalPrice) {
+ // Данные пользователя
+ const fullname = document.getElementById('fullname').value;
+ const city = document.getElementById('city').value;
+ const street = document.getElementById('street').value;
+ const house = document.getElementById('house').value;
+ const building = document.getElementById('building').value;
+ const apartment = document.getElementById('apartment').value;
+ const zip = document.getElementById('zip').value;
+ const phone = document.getElementById('phone').value;
+
+ // Формируем данные для отправки
+ const formData = new FormData();
+ formData.append('fullname', fullname);
+ formData.append('city', city);
+ formData.append('street', street);
+ formData.append('house', house);
+ formData.append('building', building);
+ formData.append('apartment', apartment);
+ formData.append('zip', zip);
+ formData.append('phone', phone);
+ formData.append('cartItems', cartContent);
+ formData.append('totalPrice', totalPrice);
+
+ // Отправка данных с помощью Fetch API
+ fetch('send_email.php', {
+     method: 'POST',
+     body: formData
+ })
+ .then(response => {
+     if (!response.ok) {
+         throw new Error('Ошибка при отправке данных');
+     }
+     return response.text();
+ })
+ .then(data => {
+     console.log(data); // Логируем результат отправки данных на сервер
+ })
+ .catch(error => {
+     console.error('Ошибка:', error);
+ });
 }
 
 // Функция для скрытия страницы с корзиной
