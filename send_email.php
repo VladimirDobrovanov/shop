@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $_POST['city'];
     $street = $_POST['street'];
     $house = $_POST['house'];
-    $building = $_POST['building'];
     $apartment = $_POST['apartment'];
     $zip = $_POST['zip'];
     $phone = $_POST['phone'];
@@ -20,9 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                'Город: ' . $city . "\r\n" .
                'Улица: ' . $street . "\r\n" .
                'Дом: ' . $house . "\r\n";
-    if (!empty($building)) {
-        $message .= 'Литера: ' . $building . "\r\n";
-    }
     if (!empty($apartment)) {
         $message .= 'Квартира: ' . $apartment . "\r\n";
     }

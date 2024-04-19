@@ -272,7 +272,7 @@ function showCartPage() {
   // Показываем кнопку "назад" в контейнере корзины
   cartContainer.appendChild(backButton);
  // Формируем содержимое корзины для отправки на почту
- const cartItems = getCartFromLocalStorage(); // Получаем корзину из Local Storage
+ const cartItems = getCartFromPage(); // Получаем корзину из Local Storage
  let cartContent = ''; // Строка для хранения содержимого корзины
  cartItems.forEach(item => {
      cartContent += `${item.name}: ${item.quantity} шт., Цена: ${item.price * item.quantity} руб.\n`;
@@ -281,53 +281,6 @@ function showCartPage() {
 
  // Заблокировать скролл на основной странице
  document.body.style.overflow = 'hidden';
-
- // Отправка данных на почту
- sendEmail(cartContent, totalPrice);
-}
-
-// Функция для отправки данных на почту
-function sendEmail(cartContent, totalPrice) {
- // Данные пользователя
- const fullname = document.getElementById('fullname').value;
- const city = document.getElementById('city').value;
- const street = document.getElementById('street').value;
- const house = document.getElementById('house').value;
- const building = document.getElementById('building').value;
- const apartment = document.getElementById('apartment').value;
- const zip = document.getElementById('zip').value;
- const phone = document.getElementById('phone').value;
-
- // Формируем данные для отправки
- const formData = new FormData();
- formData.append('fullname', fullname);
- formData.append('city', city);
- formData.append('street', street);
- formData.append('house', house);
- formData.append('building', building);
- formData.append('apartment', apartment);
- formData.append('zip', zip);
- formData.append('phone', phone);
- formData.append('cartItems', cartContent);
- formData.append('totalPrice', totalPrice);
-
- // Отправка данных с помощью Fetch API
- fetch('send_email.php', {
-     method: 'POST',
-     body: formData
- })
- .then(response => {
-     if (!response.ok) {
-         throw new Error('Ошибка при отправке данных');
-     }
-     return response.text();
- })
- .then(data => {
-     console.log(data); // Логируем результат отправки данных на сервер
- })
- .catch(error => {
-     console.error('Ошибка:', error);
- });
 }
 
 // Функция для скрытия страницы с корзиной
@@ -498,5 +451,82 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+    const checkoutButton = document.getElementById('checkoutButton');
+    
+    // Обработчик события отправки формы
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (validateForm()) {
+        const formData = new FormData(form);
+        const cartItems = getCartItems();
+        formData.append('cartItems', cartItems);
+        
+        // Отправка данных формы на сервер
+        fetch('./sendmail.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Ошибка сети');
+          }
+          return response.text();
+        })
+        .then(data => {
+          // Обработка успешного ответа
+          // alert(data); // Выводим сообщение о успешной отправке заказа
+          localStorage.clear(); // Очищаем корзину на стороне клиента
+          window.location.href = 'order_confirmation.html'; // Перенаправляем на страницу подтверждения заказа
+        })
+        .catch(error => {
+          // Обработка ошибки
+          console.error('Произошла ошибка!', error);
+        });
+      }
+    });
+    // Валидация формы перед отправкой
+    function validateForm() {
+      const requiredFields = document.querySelectorAll('._req');
+      let isValid = true;
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+        } else {
+          field.classList.remove('error');
+        }
+      });
+      return isValid;
+    }
 
+    // Получение данных корзины
+    function getCartItems() {
+      // Вы должны реализовать эту функцию для получения элементов корзины со страницы
+      // Например, вы можете извлечь их из HTML или получить из localStorage
+      // Здесь я предполагаю, что у вас есть функция для получения элементов корзины
+      const cartItems = JSON.stringify(getCartFromPage());
+      return cartItems;
+    }
+  });
 
+// Функция для извлечения элементов корзины из страницы
+function getCartFromPage() {
+  const cartItemsContainer = document.querySelector('.cart-items');
+  const items = cartItemsContainer.querySelectorAll('.cart-item');
+
+  const cart = [];
+
+  items.forEach(item => {
+    const name = item.querySelector('.item__cart-name').textContent;
+    const price = parseInt(item.querySelector('.item__cart-price').textContent);
+    const quantity = parseInt(item.querySelector('.item__cart-calc span').textContent);
+    const id = parseInt(item.querySelector('.remove-button').dataset.id);
+    const image = item.querySelector('.cart-item-image img').src;
+
+    cart.push({ id, name, price, quantity, image });
+  });
+
+  return cart;
+}

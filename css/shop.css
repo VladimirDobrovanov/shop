@@ -186,7 +186,7 @@ body {
 .header__search {
     display: none;
     position: absolute;
-    top: 39px;
+    top: -9px;
     left: -130px;
     transform: translateX(-46%);
     background-color: #fff;
@@ -284,6 +284,11 @@ body {
    margin-bottom: 10px;
    cursor: pointer;
    flex-grow: 1; /* Растягиваем заголовок, чтобы кнопка была внизу */
+   transition: all 0.3s ease-in-out;
+  }
+
+  .product-name:hover {
+    color: #659240;
   }
   
   .product-card p {
@@ -343,6 +348,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin-right: 20px;
   }
 
   .popup__content-right {
@@ -411,7 +417,7 @@ body {
 }
 
 .cart__container {
- position: absolute;
+    position: absolute;
     display: flex;
     flex-direction: column;
     top: 50%;
@@ -565,3 +571,60 @@ body {
   align-items: center;
   z-index: 100;
 }
+
+/* FORM */
+
+.form__label {
+  font-size: 18px;
+  display: block;
+}
+
+.form__body {
+  position: relative;
+}
+
+.form__body::after {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(51, 51, 51, 0.9) url(#) center / 50px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.form__body._sending::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form__input {
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+textarea.form__input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form__item-minigroup {
+  display: flex;
+}
+
+.form__input-mini {
+  padding: 0px 10px;
+  width: 60%;
+}
+
+.checkbox {
+  margin-bottom: 10px;
+}
+
+/* _sending */

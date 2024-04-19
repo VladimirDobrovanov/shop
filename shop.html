@@ -83,25 +83,43 @@
                 </div>
                 <div class="cart-summary">
                     <h2>Итоговая стоимость: <span id="totalPrice">0</span> руб.</h2>
-                    <div>
-                      <form action="send_email.php" method="post">
-                        <label for="fullname">ФИО:</label><br>
-                        <input type="text" id="fullname" name="fullname" required><br>
-                        <label for="city">Город:</label><br>
-                        <input type="text" id="city" name="city" required><br>
-                        <label for="street">Улица:</label><br>
-                        <input type="text" id="street" name="street" required><br>
-                        <label for="house">Дом:</label><br>
-                        <input type="text" id="house" name="house" required><br>
-                        <label for="building">Литера:</label><br>
-                        <input type="text" id="building" name="building"><br>
-                        <label for="apartment">Квартира:</label><br>
-                        <input type="text" id="apartment" name="apartment"><br>
-                        <label for="zip">Индекс:</label><br>
-                        <input type="text" id="zip" name="zip" required><br>
-                        <label for="phone">Телефон:</label><br>
-                        <input type="tel" id="phone" name="phone" required><br>
-                        <input  id="checkoutButton" type="submit" value="Оформить заказ">
+                    <div class="form">
+                      <form class="form__body" id="form" action="#">
+                        <div class="form__item">
+                          <label class="form__label" for="formName">ФИО*:</label><br>
+                          <input class="form__input _req" id="formName" type="text" name="name"><br>
+                        </div>
+                        <div class="form__item">
+                          <label class="form__label" for="formRegion">Полный адрес* (Город/Улица/Дом/Кв):</label><br>
+                          <input class="form__input _req" id="formRegion" type="text" name="region"><br>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__label" for="formIndex">Индекс*:</label><br>
+                            <input class="form__input form__input-mini _req" id="formIndex" type="text" name="index"><br>
+                        </div>
+                        
+                        <div class="form__item">
+                          <label class="form__label" for="formPhone">Телефон*</label><br>
+                          <input class="form__input _req" id="formPhone" type="tel" name="phone"><br>
+                        </div>
+                        <div class="form__item">
+                          <label class="form__label" for="formEmail">Email*</label><br>
+                          <input class="form__input _req _email" id="formEmail" type="text" name="email"><br>
+                        </div>
+                        <div class="form__item">
+                          <label class="form__label" for="formMessage">Комментарий</label><br>
+                          <textarea class="form__input" name="message" id="formMessage"></textarea><br>
+                        </div>
+                        <div class="form__item">
+                          <div class="checkbox">
+                            <input class="checkbox__input _req" id="formAgreement" type="checkbox" name="agreement" checked>
+                            <label class="checkbox__label" for="formAgreement">
+                              <span>Я даю свое согласие на обработку персональных данных</span>
+                            </label>
+                          </div>
+                        </div>
+                        <input type="hidden" id="cartItems" name="cartItems" value="">
+                        <input class="form__button" id="checkoutButton" type="submit" value="Оформить заказ">
                       </form>
                     </div>
                 </div>
@@ -117,7 +135,7 @@
             <img class="popup__img" src="№" alt="Изображение товара" id="popupImage">
             <h3 class="popup__h3" id="popupName"></h3>
             <p class="popup__price" id="popupPrice"></p>
-            <button class="btn-reset popup__button">Добавить в корзину</button>
+            <!-- <button class="btn-reset popup__button">Добавить в корзину</button> -->
           </div>
           <div class="popup__content-right">
             <p class="popup__descr" id="popupDescription"></p>
