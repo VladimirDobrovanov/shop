@@ -168,6 +168,39 @@ function filterProductsByCategory(startingDigits) {
 }
 
 // Получаем кнопки для каждой категории товаров
+const postcardsButtonBurger = document.getElementById('postcardsButtonBurger');
+const stickersButtonBurger = document.getElementById('stickersButtonBurger');
+const setsButtonBurger = document.getElementById('setsButtonBurger');
+const decoratingButtonBurger = document.getElementById('decoratingButtonBurger');
+const accessoriesButtonBurger = document.getElementById('accessoriesButtonBurger');
+const popularButtonBurger = document.getElementById('popularButtonBurger');
+
+// Обработчики событий для каждой кнопки
+postcardsButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('2') || filterProductsByCategory('3');
+});
+
+stickersButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('1');
+});
+
+setsButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('4');
+});
+
+decoratingButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('5');
+});
+
+accessoriesButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('6');
+});
+
+popularButtonBurger.addEventListener('click', function () {
+  filterProductsByCategory('7');
+});
+
+// Получаем кнопки для каждой категории товаров
 const postcardsButton = document.getElementById('postcardsButton');
 const stickersButton = document.getElementById('stickersButton');
 const setsButton = document.getElementById('setsButton');

@@ -133,8 +133,8 @@ body {
   .menu__list-item {
     margin-bottom: 10px;
   }
-  
-  .menu__list-item-a {
+
+  .menu__list-item-btn {
     text-decoration: none;
     color: white;
     font-size: 18px;
