@@ -44,16 +44,99 @@ padding: 0;
 @font-face {
     font-family: raleway_f;
     src: url(../fonts/raleway-regular.woff2);
+    font-weight: 300;
 }
-
 @font-face {
     font-family: raleway_f;
     src: url(../fonts/raleway-black.woff2);
-    font-weight: 900;
+    font-weight: 800;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-Thin.woff2);
+  font-weight: 100;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-ExtraLight.woff2);
+  font-weight: 200;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-Bold.woff2);
+  font-weight: 700;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-ExtraBold.woff2);
+  font-weight: 900;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-Medium.woff2);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-SemiBold.woff2);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/raleway-regular.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/raleway-black.woff2);
+  font-weight: 800;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-AltBold.woff2);
+  font-weight: 700;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-ExtraLight.woff2);
+  font-weight: 200;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-Regular.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-Regular2.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-Regular3.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-Regular4.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: CirceRounded;
+  src: url(../fonts/CirceRounded-Regular5.woff2);
+  font-weight: 300;
+}
+
+
+@font-face {
+  font-family: Maki Sans;
+  src: url(../fonts/Maki_Sans.woff2);
+  font-style: normal;
+  font-weight: 500;
 }
 
 body {
-    font-family: raleway_f , sans-serif;
+    font-family: Raleway, raleway_f, sans-serif;
     min-width: 320px;
 }
 
@@ -214,6 +297,10 @@ body {
     background-color: #8a8c0b;
 }
 
+.hero-mobile {
+  display: none;
+}
+
 /* NAVIGATION */
 
 .navigation {
@@ -236,6 +323,12 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-bottom: 20px;
+  font-family: CirceRounded;
+  font-weight: 600;
+}
+
+.navigation__h3 {
+  display: none;
 }
 
 .navigation__btn:hover {
@@ -281,6 +374,7 @@ body {
   
   .product-name {
     font-size: 18px;
+    font-weight: 600;
    margin-bottom: 10px;
    cursor: pointer;
    flex-grow: 1; /* Растягиваем заголовок, чтобы кнопка была внизу */
