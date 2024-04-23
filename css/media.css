@@ -122,13 +122,15 @@
         width: 60px;
     }
     .header {
+        position: relative;
         background-image: none;
-        padding: 0px 10px;
+        padding: 0;
         margin: 0;
     }
     .bar {
-        background-color: black;
+        background-color: white;
     }
+    
     .header__button {
         display: none;
     }
@@ -136,22 +138,24 @@
         display: block;
     }
     .header__button-svg path {
-        fill: black;
+        fill: white;
     }
-    .header__container {
+    
+        .header__container {
+        position: absolute;
+        display: flex;
         justify-content: space-between;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
     }
+    
     .burger-menu {
         padding: 6px;
     }
-    .header__search {
-        display: block;
-        top: -3px;
-        left: -120px;
-        border-radius: 10px;
-        z-index: 1;
-    }
-    .hero-mobile {
+    .header__hero-mobile {
         display: block;
       }
     .navigation {
@@ -162,27 +166,29 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: scroll;
+        width: 100%;
     }
     .navigation__btn {
-        background-color: #fff;
+        background-color: #dae698;
         color: black;
-        width: 125px;
-        height: 56px;
         font-size: 14px;
+        padding: 13px 15px;
         flex: 0 0 auto;
-        background-image: url(../img/decorating-1.jpg);
         margin-bottom: 0;
+    }
+    .navigation__btn:not(:last-child) {
         margin-right: 10px;
-        padding-right: 25px;
     }
     .navigation__btn:hover {
-        background-color: #fff;
+        background-color: #bcc971;
       }
       
       .navigation__btn:active {
-        background-color: #fff;
+        background-color: #bece63;
       }
       .product-card {
+        width: 50%;
+        min-width: 155px;
         margin: 0;
       }
       .product-img {
@@ -194,4 +200,36 @@
       .navigation__h3 {
         display: block;
       }
-}
+      .search__mobile-section {
+        display: block;
+      }
+
+      .search-mobile {
+        display: flex;
+        justify-content: center;
+        max-width: min-content;
+        border: 1px solid rgba(222, 222, 222, 1);
+        border-radius: 8px;
+      }
+
+      .search__mobile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .search-mobile input {
+        border: none;
+        padding: 10px;
+        width: 335px;
+      }
+      .search-mobile input:active , .search-mobile input:focus , .search-mobile input:hover {
+        outline: none;
+      }
+
+      .search-mobile-union {
+        margin-left: 10px;
+      }
+
+    }
+    

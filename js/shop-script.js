@@ -1,8 +1,16 @@
 // burger
 document.getElementById('burger').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.getElementById('menu').classList.toggle('active');
-  });
+  this.classList.toggle('active');
+  document.getElementById('menu').classList.toggle('active');
+
+  if (this.classList.contains('active')) {
+    // Заблокировать скролл при открытом бургере
+    document.body.style.overflow = 'hidden';
+  } else {
+    // Разблокировать скролл при закрытом бургере
+    document.body.style.overflow = '';
+  }
+});
 
 // Массив продуктов
 // Данные о товарах
@@ -142,8 +150,22 @@ window.addEventListener('DOMContentLoaded', () => {
   displayProducts(productsData);
 });
 
+//////////////////////////////////////////////////////////////
+
+
+// Получаем кнопку поиска и инпут поиска
+const searchButtonMobile = document.getElementById('searchMobile');
+const searchInputMobile = document.getElementById('searchInputMobile');
+const headerSearchMobile = document.querySelector('.search-mobile');
+
+// Обработчик события ввода текста в инпут поиска
+searchInputMobile.addEventListener('input', function (event) {
+  const searchText = event.target.value.trim();
+  filterProductsByName(searchText);
+});
 
 //////////////////////////////////////////////////////////////
+
 
 // Получаем кнопку поиска и инпут поиска
 const searchButton = document.getElementById('search');

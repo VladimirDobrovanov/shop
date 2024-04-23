@@ -10,6 +10,7 @@
 </head>
 <body>
     <header class="header">
+      <img class="header__hero-mobile" src="img/hero-mobile.jpg" alt="hero">
       <div class="container-main header__container">
         <div class="burger-menu">
           <div class="burger" id="burger">
@@ -17,16 +18,6 @@
             <div class="bar"></div>
             <div class="bar"></div>
           </div>
-          <nav class="menu" id="menu">
-            <ul class="menu__list">
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="popularButtonBurger">Популярное</button></li>
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="postcardsButtonBurger">Открытки</button></li>
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="stickersButtonBurger">Стикеры</button></li>
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="decoratingButtonBurger">Украшения</button></li>
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="accessoriesButtonBurger">Аксессуары</button></li>
-              <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="setsButtonBurger">Наборы</button></li>
-            </ul>
-          </nav>
         </div>
       <button class="logo-button btn-reset">
         <a href="index.html"><img class="logo" src="img/logo.png" alt="логотип"></a>
@@ -60,11 +51,60 @@
     </header>
 
     <main>
-      <section class="hero-mobile">
-        <img src="img/hero-mobile.jpg" alt="hero">
+      <section class="menu" id="menu">
+        <div class="container-main menu__container">
+          <div class="menu__container-left">
+            <div class="menu__link-container">
+              <ul class="list-reset menu__link-list">
+                <li class="menu__link-item"><a href="">О нас</a></li>
+                <li class="menu__link-item">Портфолио</li>
+                <li class="menu__link-item">Блог</li>
+                <li class="menu__link-item">Оплата и доставка</li>
+                <li class="menu__link-item">Возврат</li>    
+                <li class="menu__link-item">Условия использования ПД</li> 
+                <li class="menu__link-item">Контакты</li>  
+              </ul>
+            </div>
+            <div class="menu__social">
+              <svg class="menu__social-svg" fill="#e0d7d7" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                viewBox="-143 145 512 512" xml:space="preserve">
+              <g>
+                <polygon points="78.9,450.3 162.7,401.1 78.9,351.9 	"/>
+                <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M241,446.8L241,446.8
+                  c0,44.1-44.1,44.1-44.1,44.1H29.1c-44.1,0-44.1-44.1-44.1-44.1v-91.5c0-44.1,44.1-44.1,44.1-44.1h167.8c44.1,0,44.1,44.1,44.1,44.1
+                  V446.8z"/>
+              </g>
+              </svg>
+              <svg class="menu__social-svg" fill="#e0d7d7" width="60px" height="60px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M14.4415206,6 C14.060553,6.00676048 13.476055,6.20741135 10.663148,7.36249773 C9.67796175,7.7670526 7.70897661,8.60437935 4.75619264,9.87447795 C4.27670659,10.0627254 4.02553067,10.2468857 4.00266485,10.4269588 C3.95876487,10.7726802 4.46291296,10.8803081 5.09723696,11.0838761 C5.61440201,11.2498453 6.31007997,11.4440124 6.67173438,11.4517262 C6.99978943,11.4587234 7.36593635,11.3251987 7.77017511,11.051152 C10.5290529,9.21254679 11.9531977,8.28322679 12.0426094,8.26319203 C12.1056879,8.24905787 12.1930992,8.23128593 12.2523244,8.28325656 C12.3115496,8.33522719 12.3057275,8.43364956 12.299454,8.46005377 C12.2492926,8.67117474 9.65764825,10.998457 9.50849738,11.1513987 L9.43697409,11.2233057 C8.88741493,11.7661123 8.33196049,12.1205055 9.290333,12.7440164 C10.155665,13.3069957 10.6592923,13.6661378 11.5507686,14.2430701 C12.1204738,14.6117635 12.5671299,15.0489784 13.1553348,14.9955401 C13.4259939,14.9709508 13.705567,14.7196888 13.8475521,13.9703127 C14.1831052,12.1993135 14.8426779,8.36209709 14.9951103,6.78087197 C15.0084653,6.64233621 14.9916649,6.46503787 14.9781732,6.38720805 C14.9646815,6.30937823 14.9364876,6.19848702 14.8340164,6.11639754 C14.7126597,6.01917896 14.5253109,5.99867765 14.4415206,6 Z"/></svg>
+              <svg class="menu__social-svg" width="60px" height="60px" viewBox="0 0 60 60"  xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 0C13.432 0 0 13.4314 0 30C0 46.5686 13.432 60 30 60C46.568 60 60 46.5686 60 30C60 13.4314 46.568 0 30 0ZM45.2176 33.2446C46.6159 34.6103 48.0951 35.8957 49.3504 37.4026C49.9065 38.0692 50.4307 38.7585 50.8297 39.5337C51.3993 40.6392 50.8849 41.8515 49.8954 41.9171L43.7494 41.9159C42.162 42.0473 40.8988 41.4071 39.8339 40.3218C38.9837 39.457 38.195 38.5332 37.3762 37.6389C37.0416 37.2718 36.6893 36.9262 36.2695 36.6543C35.4316 36.1093 34.7036 36.2762 34.2236 37.1515C33.7344 38.0421 33.6227 39.0292 33.5761 40.0205C33.5092 41.4697 33.0721 41.8484 31.618 41.9165C28.5109 42.062 25.5628 41.5906 22.8227 40.0241C20.4055 38.6425 18.5346 36.6924 16.9043 34.4845C13.7297 30.1805 11.2984 25.4566 9.11386 20.597C8.6222 19.5026 8.98189 18.917 10.1893 18.8943C12.1952 18.8557 14.2011 18.8606 16.2071 18.8925C17.0234 18.9054 17.5636 19.3725 17.8772 20.1428C18.9612 22.8098 20.2901 25.3473 21.9554 27.7007C22.3992 28.3274 22.8522 28.9522 23.4973 29.3948C24.2093 29.8834 24.7519 29.7219 25.0877 28.9271C25.3025 28.4219 25.3952 27.8817 25.4418 27.3404C25.6014 25.486 25.6205 23.6323 25.3442 21.7854C25.1724 20.6296 24.5224 19.8832 23.3702 19.6647C22.7834 19.5536 22.8694 19.3363 23.1548 19.0011C23.6501 18.4217 24.1142 18.0632 25.0416 18.0632L31.9857 18.062C33.0801 18.2768 33.3256 18.7679 33.4742 19.8703L33.4803 27.5871C33.4674 28.0137 33.6945 29.2782 34.4606 29.5574C35.0744 29.76 35.4795 29.2677 35.8465 28.8792C37.5118 27.112 38.6983 25.0263 39.7608 22.8675C40.2298 21.9155 40.6343 20.9303 41.0271 19.9433C41.3193 19.2135 41.7735 18.8544 42.5972 18.8667L49.2841 18.8747C49.4811 18.8747 49.6812 18.8765 49.8764 18.9103C51.0034 19.103 51.3121 19.5879 50.9635 20.6873C50.4147 22.4145 49.3485 23.8533 48.3063 25.2958C47.1892 26.8401 45.9977 28.3304 44.8917 29.8815C43.8752 31.2994 43.9556 32.0133 45.2176 33.2446Z" fill="#e0d7d7"/>
+                </svg>
+            </div>
+          </div>
+          
+          <div class="menu__container-right">
+            <div class="menu__container-right-nav">
+              <h3 class="menu__list-h3">Категории</h3>
+              <ul class="menu__list">
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="popularButtonBurger">Популярное</button></li>
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="postcardsButtonBurger">Открытки</button></li>
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="stickersButtonBurger">Стикеры</button></li>
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="decoratingButtonBurger">Украшения</button></li>
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="accessoriesButtonBurger">Аксессуары</button></li>
+                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="setsButtonBurger">Наборы</button></li>
+              </ul>
+            </div>
+            <div class="menu__container-right-comm">
+              <h3 class="menu__comm-h3">Партнёрам</h3>
+              <ul class="list-reset menu__comm-list">
+                <li class="menu__comm-item">Условия партнёрства</li>
+                <li class="menu__comm-item">Как связаться</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
       <section class="navigation">
-        <h3 class="navigation__h3">Категории</h3>
         <div class="container-main navigation__container">
           <button class="navigation__btn" id="popularButton">Популярное</button>
           <button class="navigation__btn" id="postcardsButton">Открытки</button>
@@ -73,6 +113,14 @@
           <button class="navigation__btn" id="accessoriesButton">Аксессуары</button>
           <button class="navigation__btn" id="setsButton">Наборы</button>
         </div>    
+      </section>
+      <section class=" container-main search__mobile-section">
+        <div class="search__mobile-container">
+          <div class="search-mobile">
+            <img class="search-mobile-union" src="img/union.svg" alt="поиск">
+            <input type="text" id="searchInputMobile" placeholder="Поиск по названию товара">
+        </div>
+      </div>
       </section>
       <section class="container-main products" id="products">
       </section>
