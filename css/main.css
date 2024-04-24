@@ -60,6 +60,10 @@ body {
     background-size: cover;
 }
 
+.index-mobile {
+    display: none;
+}
+
 .content {
     will-change: transform;
 }
@@ -177,4 +181,28 @@ body {
     bottom: calc(var(--index) * 2.5);
     font-size: calc(var(--index) * .75);
     letter-spacing: calc(var(--index) / 37.5);
+}
+
+
+@media (max-width: 480px) {
+    .index-mobile {
+        display: block;
+        position: relative;
+    }
+
+    .wrapper {
+        display: none;
+    }
+
+    body {
+        background-color: #fff;
+        background-image: none;
+        overflow-y: hidden;
+    }
+    .link__shop-index {
+        display: block;
+        width: 100px;
+        height: 50px;
+        background-color: rgba(225, 225, 225, 0.8);
+    }
 }
