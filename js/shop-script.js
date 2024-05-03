@@ -1,16 +1,6 @@
-// burger
-document.getElementById('burger').addEventListener('click', function() {
-  this.classList.toggle('active');
-  document.getElementById('menu').classList.toggle('active');
 
-  if (this.classList.contains('active')) {
-    // Заблокировать скролл при открытом бургере
-    document.body.style.overflow = 'hidden';
-  } else {
-    // Разблокировать скролл при закрытом бургере
-    document.body.style.overflow = '';
-  }
-});
+
+
 
 // Массив продуктов
 // Данные о товарах
@@ -106,7 +96,7 @@ function createProductCard(product) {
   card.innerHTML = `
       <img class="product-img" src="${product.image}" alt="${product.name}">
       <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
-      <p>Цена: ${product.price} руб</p>
+      <p> ${product.price} руб</p>
       <button class="btn-reset buy-button"  data-product-id="${product.id}">Добавить в корзину</button>
   `;
   return card;
@@ -122,6 +112,19 @@ function displayProducts(products) {
       const card = createProductCard(product);
       productsContainer.appendChild(card);
   });
+}
+
+// Функция для создания drawer уведомления
+function createDrawer(message) {
+  const drawer = document.createElement('div');
+  drawer.classList.add('drawer');
+  drawer.textContent = message;
+  document.body.appendChild(drawer);
+
+  // Удаляем drawer через некоторое время
+  setTimeout(() => {
+    document.body.removeChild(drawer);
+  }, 3000); // Измените время на необходимое вам
 }
 
 // Обработчик события для кнопок "Добавить в корзину" на карточках товаров
@@ -140,6 +143,8 @@ document.querySelector('.products').addEventListener('click', function(event) {
               addToCart(product);
               // Обновляем отображение корзины
               displayCartItems();
+              // Создаем и отображаем drawer уведомление
+             createDrawer('Товар добавлен в корзину');
           }
       }
   }
@@ -147,7 +152,7 @@ document.querySelector('.products').addEventListener('click', function(event) {
 
 // Отображение карточек товаров при загрузке страницы
 window.addEventListener('DOMContentLoaded', () => {
-  displayProducts(productsData);
+  filterProductsByCategory('2');
 });
 
 //////////////////////////////////////////////////////////////
@@ -552,9 +557,17 @@ window.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', function(event) {
       event.preventDefault();
       if (validateForm()) {
-        const formData = new FormData(form);
-        const cartItems = getCartItems();
-        formData.append('cartItems', cartItems);
+        // Проверяем общую стоимость покупок
+        const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
+        if (totalPrice < 500) {
+          // Если сумма меньше 500 рублей, выводим сообщение об ошибке
+          alert('Сумма заказа должна быть не менее 500 рублей');
+          return; // Прерываем отправку формы
+          }
+
+          const formData = new FormData(form);
+          const cartItems = getCartItems();
+          formData.append('cartItems', cartItems);
         
         // Отправка данных формы на сервер
         fetch('./sendmail.php', {
