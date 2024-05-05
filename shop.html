@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интернет-магазин "Домик творчества"</title>
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/fakeLoader.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="css/shop.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
 <body>
+  <div class="fakeLoader"></div>
     <header class="header">
       <img class="header__hero-mobile" src="img/hero-mobile.jpg" alt="hero">
       <div class="container-main header__container">
@@ -139,28 +142,36 @@
                 <div class="cart-items">
                 </div>
                 <div class="cart-summary">
-                    <h2>Итоговая стоимость: <span id="totalPrice">0</span> руб.</h2>
+                    <h2>Общая стоимость: <span id="totalPrice">0</span> руб.</h2>
                     <div class="form">
                       <form class="form__body" id="form" action="#">
                         <div class="form__item">
-                          <label class="form__label" for="formPhone">Телефон*</label><br>
-                          <input class="form__input _req" id="formPhone" type="tel" name="phone"><br>
+                          <label class="form__label" for="finalPrice">Цена с учетом скидки:</label>
+                          <span id="finalPrice" class="form__input form__input-mini"></span><br>
+                        </div>
+                        <div class="form__item">
+                          <label class="form__label" for="formPhone">Телефон</label><br>
+                          <input class="form__input _req tel" id="formPhone" type="tel" name="phone"><br>
                         </div>
                         <div class="form__item">
                           <label class="form__label" for="formName">Фамилия Имя и Отчество</label><br>
-                          <input class="form__input _req" id="formName" type="text" name="name"><br>
+                          <input class="form__input _req name" id="formName" type="text" name="name"><br>
                         </div>
                         <div class="form__item">
-                          <label class="form__label" for="formRegion">Полный адрес* (Город/Улица/Дом/Кв):</label><br>
+                          <label class="form__label" for="formRegion">Полный адрес (Город/Улица/Дом/Кв)</label><br>
                           <input class="form__input _req" id="formRegion" type="text" name="region"><br>
                         </div>
                         <div class="form__item">
-                            <label class="form__label" for="formIndex">Индекс*:</label><br>
-                            <input class="form__input form__input-mini _req" id="formIndex" type="text" name="index"><br>
+                            <label class="form__label" for="formIndex">Индекс</label><br>
+                            <input class="form__input form__input-mini _req index" id="formIndex" type="text" name="index"><br>
                         </div>
                         <div class="form__item">
-                          <label class="form__label" for="formEmail">Email*</label><br>
-                          <input class="form__input _req _email" id="formEmail" type="text" name="email"><br>
+                          <label class="form__label" for="promoCode">Промокод</label><br>
+                          <input class="form__input form__input-mini" id="promoCode" type="text" name="promoCode"><br>
+                        </div>
+                        <div class="form__item">
+                          <label class="form__label" for="formEmail">Email</label><br>
+                          <input class="form__input _req _email mail" id="formEmail" type="text" name="email"><br>
                         </div>
                         <div class="form__item">
                           <label class="form__label" for="formMessage">Комментарий</label><br>
@@ -189,31 +200,38 @@
           </div>
         </div>
       </div>
-      <!-- POPUP -->
-      <div id="popup" class="popup">
-        <div class="popup__content">
-          <button class="btn-reset close" id="close">Закрыть</button>
-          <div class="popup__content-left">
-            <img class="popup__img" src="№" alt="Изображение товара" id="popupImage">
-            <div class="popup__cont-bottom">
-              <h3 class="popup__h3" id="popupName"></h3>
-              <p class="popup__price" id="popupPrice"></p>
-            </div>
-          </div>
-          <div class="popup__content-right">
-            <p class="popup__descr" id="popupDescription"></p>
-            <p class="popup__material" id="popupMaterial"></p>
+    <!-- POPUP -->
+    <div id="popup" class="popup">
+      <div class="popup__content">
+        <button class="btn-reset close" id="close">Закрыть</button>
+        <div class="popup__content-left">
+          <img class="popup__img" src="#" alt="Изображение товара" id="popupImage">
+          <div id="popupImagesContainer" class="popup__images-container"></div>
+          <div class="popup__cont-bottom">
+            <h3 class="popup__h3" id="popupName"></h3>
+            <p class="popup__price" id="popupPrice"></p>
           </div>
         </div>
+        <div class="popup__content-right">
+          <p class="popup__descr" id="popupDescription"></p>
+          <p class="popup__material" id="popupMaterial"></p>
+        </div>
       </div>
+    </div>
 
       <footer class="footer">
 
       </footer>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script src="js/fakeLoader.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/swiper.js"></script>
     <script src="js/shop-script.js"></script>
     <script src="js/burger.js"></script>
+    <script src="js/inputmask.min.js"></script>
+    <script src="js/just-validate.min.js"></script>
+    <script src="js/form__validate-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </body>
 </html>

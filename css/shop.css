@@ -217,7 +217,7 @@ body {
   }
 
   .menu__link-item:hover {
-    font-size: 44px;
+    transform: scale(1.1);
   }
 
   .menu {
@@ -301,6 +301,14 @@ body {
     height: auto;
 }
 
+.logo-button {
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-button:hover {
+ transform: scale(1.1);
+}
+
 .header {
     background-image: url(../img/header-bg.PNG);
     background-repeat: round;
@@ -377,7 +385,7 @@ body {
 }
 
 .header__button-search:hover , .header__button-cart:hover {
-  width: 90px;
+ transform: scale(1.3);
 }
 
 
@@ -898,4 +906,26 @@ background-color: #69b927;
 .drawer {
   animation: slideIn 0.5s ease forwards, slideOut 0.5s ease forwards 2.5s;
   /* Появление на 0.5 секунды, остается на экране 2.5 секунды, затем исчезает на 0.5 секунды */
+}
+
+.just-validate-error-label {
+  color: #ff7979;
+  font-family: 'Maki Sans';
+}
+
+#popupImagesContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#popupImagesContainer img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.fancybox-content {
+  background-color: black;
+  padding: 0;
 }

@@ -1,34 +1,27 @@
 
-
-
-
 // Массив продуктов
-// Данные о товарах
-
-
-
 let productsData = [
-    { id: 101, name: 'Стикерпак А5 «Энн с зелёных крыш»', price: 220, image: 'img/stickers-1.jpg', description: 'Обновленный стикерпак Энн🌟🏡 большой размер а5, виниловая матовая пленка, новые наклейки и крупней размер'},
-    { id: 102, name: 'Cтикерпак «букет незабудок»', price: 220, image: 'img/stickers-2.jpg', description: 'Описание товара 2' },
-    { id: 103, name: 'Стикерпак «нежные ландыши»', price: 160, image: 'img/stickers-3.jpg', description: 'Описание товара 3' },
-    { id: 104, name: 'Cтикерпак «Крыски»', price: 160, image: 'img/stickers-4.jpg', description: 'Описание товара 4' },
-    { id: 105, name: 'Стикерпак «чай с сиренью»', price: 150, image: 'img/stickers-5.jpg', description: 'Описание товара 5' },
-    { id: 106, name: 'Cтикерпак «Энн с зелёных крыш»', price: 160, image: 'img/stickers-6.jpg', description: 'Описание товара 6' },
+    { id: 101, name: 'Стикерпак А5 «Энн с зелёных крыш»', price: 220, image: 'img/stickers-1.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'],  description: 'Обновленный стикерпак Энн🌟🏡 большой размер а5, виниловая матовая пленка, новые наклейки и крупней размер'},
+    { id: 102, name: 'Cтикерпак «букет незабудок»', price: 220, image: 'img/stickers-2.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: 'Описание товара 2' },
+    { id: 103, name: 'Стикерпак «нежные ландыши»', price: 160, image: 'img/stickers-3.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: 'Описание товара 3' },
+    { id: 104, name: 'Cтикерпак «Крыски»', price: 160, image: 'img/stickers-4.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: 'Описание товара 4' },
+    { id: 105, name: 'Стикерпак «чай с сиренью»', price: 150, image: 'img/stickers-5.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: 'Описание товара 5' },
+    { id: 106, name: 'Cтикерпак «Энн с зелёных крыш»', price: 160, image: 'img/stickers-6.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: 'Описание товара 6' },
     // { id: 107, name: 'Cтикерпак «сельские скетчи»', price: 120, image: 'img/stickers-7.jpg', description: '#' },
     // { id: 108, name: '"Мини пак «домик Элисы»"', price: 100, image: 'img/stickers-8.jpg', description: '#' },
-    { id: 109, name: 'Cтикерпак «винтажный гербарий»', price: 120, image: 'img/stickers-9.jpg', description: '#' },
+    { id: 109, name: 'Cтикерпак «винтажный гербарий»', price: 120, image: 'img/stickers-9.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
     // { id: 110, name: 'стикерпак «осенний уют»', price: 120, image: 'img/stickers-10.jpg', description: '#' },
     // { id: 111, name: 'Стикерпак «зарисовки для дневника»', price: 120, image: 'img/stickers-11.jpg', description: '#' },
     // { id: 112, name: 'Стикербокс «набор мелочей»', price: 120, image: 'img/stickers-12.jpg', description: '#' },
-    { id: 113, name: '«Сюрприз» набор стикеров', price: 180, image: 'img/stickers-13.jpg', description: '#' },
-    { id: 114, name: 'Стикербокс «Лисий»', price: 180, image: 'img/stickers-14.jpg', description: '#' },
-    { id: 115, name: 'Набор наклеек «Букет незабудок»', price: 160, image: 'img/stickers-15.jpg', description: '#' },
-    { id: 116, name: 'Стикербокс «Энн»', price: 180, image: 'img/stickers-16.jpg', description: '#' },
-    { id: 117, name: 'Cтикерпак «момент мечты»', price: 160, image: 'img/stickers-17.jpg', description: '#' },
-    { id: 118, name: 'Стикерпак малыш «цветы острова Чеджу»', price: 110, image: 'img/stickers-18.jpg', description: '#' },
-    { id: 119, name: 'Стикер «Сладкие лапки»', price: 70, image: 'img/stickers-118@.jpg', description: '#' },
-    { id: 120, name: 'Стикер «Сладкие котики»', price: 70, image: 'img/stickers-118@.jpg', description: '#' },
-    { id: 121, name: 'Наклейка на канковскую карту «Котьи лапки»', price: 150, image: 'img/stickers-118@.jpg', description: '#' },
+    { id: 113, name: '«Сюрприз» набор стикеров', price: 180, image: 'img/stickers-13.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 114, name: 'Стикербокс «Лисий»', price: 180, image: 'img/stickers-14.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 115, name: 'Набор наклеек «Букет незабудок»', price: 160, image: 'img/stickers-15.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 116, name: 'Стикербокс «Энн»', price: 180, image: 'img/stickers-16.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 117, name: 'Cтикерпак «момент мечты»', price: 160, image: 'img/stickers-17.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 118, name: 'Стикерпак малыш «цветы острова Чеджу»', price: 110, image: 'img/stickers-18.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 119, name: 'Стикер «Сладкие лапки»', price: 70, image: 'img/stickers-118@.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 120, name: 'Стикер «Сладкие котики»', price: 70, image: 'img/stickers-118@.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
+    { id: 121, name: 'Наклейка на канковскую карту «Котьи лапки»', price: 150, image: 'img/stickers-118@.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'], description: '#' },
 
     { id: 20, name: 'открытка «царица Эсфирь»', price: 100, image: 'img/postcards-1.jpg', description: '#' },
     { id: 21, name: 'открытка «песнь песней»', price: 100, image: 'img/postcards-2.jpg', description: '#' },
@@ -84,7 +77,6 @@ let productsData = [
     { id: 68, name: 'Набор значков «Чай с сиренью»', price: 300, image: 'img/accessories-2@.jpg', description: '#' },
     { id: 69, name: 'Набор значков «Незабудки»', price: 300, image: 'img/accessories-2@.jpg', description: '#' },
     { id: 601, name: 'Обложка на паспорт «Весенние котики»', price: 500, image: 'img/accessories-2@.jpg', description: '#' },
-
     {id: 80, name:'книжная закладка «мечтай»', price: 110, image: 'img/bookmark-1.jpg', description: '#'}
 ];
 
@@ -94,7 +86,7 @@ function createProductCard(product) {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-      <img class="product-img" src="${product.image}" alt="${product.name}">
+  <img class="product-img" src="${product.image}" alt="${product.name}" data-product-id="${product.id}">
       <h3 class="product-name" data-product-id="${product.id}">${product.name}</h3>
       <p> ${product.price} руб</p>
       <button class="btn-reset buy-button"  data-product-id="${product.id}">Добавить в корзину</button>
@@ -300,7 +292,6 @@ popularButton.addEventListener('click', function () {
 
 //////////////////////////////////////////////////////////////
 
-// Функция для отображения popup с описанием товара
 function showProductPopup(product) {
   const popup = document.getElementById('popup');
   const popupImage = document.getElementById('popupImage');
@@ -308,12 +299,45 @@ function showProductPopup(product) {
   const popupPrice = document.getElementById('popupPrice');
   const popupDescription = document.getElementById('popupDescription');
   const popupMaterial = document.getElementById('popupMaterial');
-
+  
   popupImage.src = product.image;
   popupName.textContent = product.name;
   popupPrice.textContent = `Цена: ${product.price} руб`;
   popupDescription.textContent = product.description;
   popupMaterial.textContent = `Материал: ${product.material || 'Не указан'}`;
+
+  // Отображаем дополнительные изображения товара
+  const popupImagesContainer = document.getElementById('popupImagesContainer');
+  popupImagesContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых изображений
+
+  // Добавляем основное изображение в контейнер основного изображения
+  const mainImgPopup = document.createElement('a');
+  mainImgPopup.href = product.image;
+  mainImgPopup.classList.add('fancybox'); // Добавляем класс fancybox
+  mainImgPopup.dataset.fancybox = `gallery-${product.id}`;
+
+  const mainImg = document.createElement('img');
+  mainImg.src = product.image;
+  mainImg.alt = 'Основное изображение товара для popup';
+  mainImgPopup.appendChild(mainImg);
+  popupImagesContainer.appendChild(mainImgPopup);
+
+  // Добавляем каждое изображение в popup
+  product.images.forEach((image) => {
+    const imgContainer = document.createElement('a');
+    imgContainer.href = image;
+    imgContainer.classList.add('fancybox'); // Добавляем класс fancybox
+    imgContainer.dataset.fancybox = `gallery-${product.id}`;
+
+    const imgPopup = document.createElement('img');
+    imgPopup.src = image;
+    imgPopup.alt = 'Дополнительное изображение товара для popup';
+    imgContainer.appendChild(imgPopup);
+    popupImagesContainer.appendChild(imgContainer);
+  });
+
+  // Инициализируем FancyBox на всех изображениях
+  $('.fancybox').fancybox();
 
   // Отображаем popup
   popup.style.display = 'block';
@@ -322,9 +346,9 @@ function showProductPopup(product) {
   document.querySelector('.products').classList.add('popup-open');
 }
 
-// Обработчик события нажатия на название товара для отображения popup
+// Обработчик события нажатия на название товара или картинку для отображения popup
 document.getElementById('products').addEventListener('click', function(event) {
-  if (event.target.classList.contains('product-name')) {
+  if (event.target.classList.contains('product-name') || event.target.classList.contains('product-img')) {
     const productId = event.target.dataset.productId;
     const product = productsData.find(product => product.id === parseInt(productId));
     if (product) {
@@ -341,6 +365,7 @@ document.getElementById('close').addEventListener('click', function() {
   // Удаляем класс для затемнения заднего фона
   document.querySelector('.products').classList.remove('popup-open');
 });
+
 
 ////////////////////////////////////////////////////////////////
 
@@ -548,74 +573,95 @@ window.addEventListener('DOMContentLoaded', () => {
 ////////////////////////////////////////////////////////////////
 
 
+// Функция для расчета скидки по промокоду
+function calculateDiscount(promoCode) {
+  // Проверяем, совпадает ли промокод с каким-либо известным значением
+  if (promoCode === 'MYDISCOUNT') {
+    // Если промокод совпадает, применяем скидку 10% к общей стоимости
+    const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
+    const discount = totalPrice * 0.1; // 10% от общей стоимости
+    return discount;
+  } else {
+    // Если промокод не совпадает, возвращаем 0 (без скидки)
+    return 0;
+  }
+}
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('form');
-    const checkoutButton = document.getElementById('checkoutButton');
-    
-    // Обработчик события отправки формы
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      if (validateForm()) {
-        // Проверяем общую стоимость покупок
-        const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
-        if (totalPrice < 500) {
-          // Если сумма меньше 500 рублей, выводим сообщение об ошибке
-          alert('Сумма заказа должна быть не менее 500 рублей');
-          return; // Прерываем отправку формы
-          }
 
-          const formData = new FormData(form);
-          const cartItems = getCartItems();
-          formData.append('cartItems', cartItems);
-        
-        // Отправка данных формы на сервер
-        fetch('./sendmail.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Ошибка сети');
-          }
-          return response.text();
-        })
-        .then(data => {
-          // Обработка успешного ответа
-          // alert(data); // Выводим сообщение о успешной отправке заказа
-          localStorage.clear(); // Очищаем корзину на стороне клиента
-          window.location.href = 'order_confirmation.html'; // Перенаправляем на страницу подтверждения заказа
-        })
-        .catch(error => {
-          // Обработка ошибки
-          console.error('Произошла ошибка!', error);
-        });
-      }
-    });
-    // Валидация формы перед отправкой
-    function validateForm() {
-      const requiredFields = document.querySelectorAll('._req');
-      let isValid = true;
-      requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-          isValid = false;
-          field.classList.add('error');
-        } else {
-          field.classList.remove('error');
-        }
-      });
-      return isValid;
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('form');
+  const promoCodeInput = document.getElementById('promoCode');
+
+  // Слушатель для обновления итоговой стоимости при изменении промокода
+  promoCodeInput.addEventListener('input', function() {
+    const promoCodeValue = promoCodeInput.value.trim();
+    const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
+    let discount = 0;
+    let finalPrice = totalPrice;
+  
+    if (promoCodeValue !== '') {
+      discount = calculateDiscount(promoCodeValue);
+      finalPrice = totalPrice - discount;
     }
+
+    document.getElementById('finalPrice').textContent = finalPrice + ' руб.';
+  });
+
+  // Обработчик события отправки формы
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
+    if (!validateForm() || totalPrice < 500) {
+      alert('Сумма заказа должна быть не менее 500 рублей');
+      return;
+    }
+
+    const discount = calculateDiscount(promoCodeInput.value.trim());
+    const finalPrice = totalPrice - discount;
+
+    const formData = new FormData(form);
+    formData.append('cartItems', JSON.stringify(getCartFromPage()));
+    formData.append('discount', discount);
+    formData.append('finalPrice', finalPrice);
+
+    fetch('./sendmail.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Ошибка сети');
+      }
+      return response.text();
+    })
+    .then(data => {
+      localStorage.clear();
+      window.location.href = 'order_confirmation.html';
+    })
+    .catch(error => {
+      console.error('Произошла ошибка!', error);
+    });
+  });
+
+  // Валидация формы
+  function validateForm() {
+    const requiredFields = document.querySelectorAll('._req');
+    return Array.from(requiredFields).every(field => {
+      if (!field.value.trim()) {
+        field.classList.add('error');
+        return false;
+      }
+      field.classList.remove('error');
+      return true;
+    });
+  }
+});
 
     // Получение данных корзины
     function getCartItems() {
-      // Вы должны реализовать эту функцию для получения элементов корзины со страницы
-      // Например, вы можете извлечь их из HTML или получить из localStorage
-      // Здесь я предполагаю, что у вас есть функция для получения элементов корзины
       const cartItems = JSON.stringify(getCartFromPage());
       return cartItems;
     }
-  });
 
 // Функция для извлечения элементов корзины из страницы
 function getCartFromPage() {
@@ -636,3 +682,4 @@ function getCartFromPage() {
 
   return cart;
 }
+
