@@ -1,4 +1,8 @@
-
+$(window).on('load', function () {
+ setTimeout( function ()  {
+  $('.preloader').fadeOut('slow');
+}, 3000); 
+});
 // Массив продуктов
 let productsData = [
     { id: 101, name: 'Стикерпак А5 «Энн с зелёных крыш»', price: 220, image: 'img/stickers-1.jpg', images: ['img/stickers-1-extra1.jpg', 'img/stickers-1-extra2.jpg', 'img/stickers-1-extra3.jpg'],  description: 'Обновленный стикерпак Энн🌟🏡 большой размер а5, виниловая матовая пленка, новые наклейки и крупней размер'},

@@ -13,7 +13,9 @@
     <script defer src="js/particles.js"></script>
 </head>
 <body>
-    <div class="fakeLoader"></div>
+    <div class="preloader">
+        <div class="preloader__image"></div>
+      </div>
     <div class="index-mobile">
         <img src="img/index-mobile.PNG" alt="">
       
@@ -29,11 +31,12 @@
                 <div class="layers">
                     <div class="layer layers__base" style="background-image: url(img/base.png);"></div>
                     <div class="layer layers__middle" style="background-image: url(img/middle.png);"></div>
-                    <a class="layer house-btn hover-image" href="shop.html"><img src="img/house-btn.PNG" alt="Магазин"></a>
+                    <a class="layer house-btn hover-image" href="shop.html" onclick="window.location.href='shop.html';"><img src="img/house-btn.PNG" alt="Магазин"></a>
                     <div class="layer cats-btn hover-image"><img src="img/cats-btn.png" alt="game"></div>
                     <a class="layer portfolio-btn hover-image" href="https://elisaillustrator.ru/"><img src="img/portfolio-btn.png" alt="portfolio"></a>
                     <canvas class="layer particles" data-color="#f1c563"></canvas>
                     <div class="layer layers__front" style="background-image: url(img/front.png);"></div> 
+                    <img class="front__mobile-img" src="img/front.png" alt="front">
                 </div>
             </header> 
             <article class="main-article" style="background-image: url(img/dungeon.png);">

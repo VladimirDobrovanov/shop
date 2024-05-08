@@ -124,6 +124,7 @@ body {
     transform: translate3d(0, calc(var(--scrollTop) / 3.7), 0 );
 }
 
+
 .layer__header {
     z-index: 1;
     transform: translate3d(0, calc(var(--scrollTop) / 2), 0 );
@@ -194,16 +195,17 @@ body {
 
   .house-btn {
     display: block;
-    width: 500px;
+    width: calc(var(--index) * 20.175);
     height: auto;
     opacity: 1;
     z-index: 100;
     margin-top: 98px;
+    
   }
 
   .cats-btn {
     display: block;
-    width: 250px;
+    width: calc(var(--index) * 10.175);
     height: auto;
     opacity: 1;
     z-index: 100;
@@ -214,7 +216,7 @@ body {
 
   .portfolio-btn {
     display: block;
-    width: 300px;
+    width: calc(var(--index) * 10.175);
     height: auto;
     opacity: 1;
     z-index: 100;
@@ -223,12 +225,74 @@ body {
     cursor: pointer;
   }
 
+  .front__mobile-img {
+    display: none;
+  }
+
   .house-btn:hover , .cats-btn:hover , .portfolio-btn:hover {
     transform: scale(1.1);
     z-index: 1000;
   }
 
+  .preloader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: #999;
+    z-index: 1002;
+}
 
+.preloader__image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-top: -32px;
+    margin-left: -32px;*/
+    background: url('../img/fakeloader__gif.gif') no-repeat 50% 50%;
+}
+
+  @media (max-width: 1200px) {
+
+     .cats-btn {
+        margin-top: 358px;
+        margin-right: 435px;
+     }
+     .portfolio-btn {
+        margin-top: 206px;
+        margin-left: 483px;
+     }
+
+  }
+
+  @media (max-width: 650px) {
+    .portfolio-btn , .cats-btn {
+        display: none;
+    }
+    .house-btn {
+        position: relative;
+        width: calc(var(--index) * 24.175);
+    }
+    .main-article {
+        display: none;
+    }
+    .house-btn:hover , .cats-btn:hover , .portfolio-btn:hover {
+        transform: none;
+        z-index: 1000;
+      }
+
+    .front__mobile-img {
+        
+    }
+  }
+
+/* 
 @media (max-width: 480px) {
     .index-mobile {
         position: relative;
@@ -403,4 +467,4 @@ body {
         top: 231px;
         right: 20px;
     }
-}
+} */

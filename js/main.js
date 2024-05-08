@@ -1,3 +1,10 @@
+$(window).on('load', function () {
+    setTimeout( function ()  {
+     $('.preloader').fadeOut('slow');
+   }, 3000); 
+   });
+
+
 // блокировка скролла при наведении на картинку
 function disableScrollOnHover(images) {
     images.forEach(image => {

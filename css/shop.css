@@ -261,10 +261,11 @@ body {
     margin-bottom: 100px;
   }
 
+
   .menu__social-svg:not(:last-child) {
     margin-right: 30px;
   }
-  
+
   .menu.active {
     display: block;
     opacity: 1;
@@ -297,7 +298,7 @@ body {
 /* SHOP HEADER */
 
 .logo {
-    width: 200px;
+    width: 290px;
     height: auto;
 }
 
@@ -431,6 +432,7 @@ body {
 .hero__slide__1 , .hero__slide__2 , .hero__slide__3 {
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: center;
   height: 600px;
 }
 /* NAVIGATION */
@@ -557,15 +559,16 @@ body {
   .popup__content {
     position: absolute;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: white;
     top: 0;
     left: 0;
-    transform: translate(50%, 10%);
-    width: 50%;
-    height: auto;
+    transform: translate(65%, 10%);
+    width: 800px;
+    height: 700px;
     overflow-y: auto;
     border-radius: 10px;
+    padding: 30px;
   }
 
   .popup__content-left {
@@ -573,15 +576,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 30px;
-    padding-left: 30px;
+    padding: 30px
   }
 
   .popup__content-right {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
     padding: 30px;
   }
   
@@ -594,9 +597,13 @@ body {
   }
   
   .popup__img {
-    max-width: 50%;
+    max-width: 400px;
     height: auto;
     margin-bottom: 20px;
+  }
+
+  .popup__cont-bottom {
+    margin-bottom: 40px;
   }
 
   .popup__price {
@@ -928,4 +935,173 @@ background-color: #69b927;
 .fancybox-content {
   background-color: black;
   padding: 0;
+}
+
+/* FORME  */
+
+.for-me {
+  margin-bottom: 60px;
+}
+
+.for-me__container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.for-me__heading {
+  margin-bottom: 20px;
+}
+
+.for-me__info-cont {
+  display: flex;
+  flex-direction: row;
+}
+
+.for-me__pararaph {
+  width: 50%;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.for-me__img {
+  width: 360px;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+/* FEEDBACK */
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.feedback__container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.feedback__heading {
+  font-size: 40px;
+  margin-bottom: 100px;
+}
+
+.feedback__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.feedback__name {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.feedback__surname {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.feedback__paragraph {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 32px;
+  height: auto;
+  text-align: center;
+}
+
+.feedback__img {
+  position: absolute;
+  transform: translate(0px, -70px);
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  box-shadow: 0 0 0 3px #9fa10d, 0 0 13px #333;
+}
+
+.feedback__item-cont {
+  padding: 10px;
+}
+
+.feedback__item  {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  text-align: center;
+  max-width: 396px;
+  background-image: url(../img/header-bg.PNG);
+  background-size: cover;
+  border-radius: 20px;
+  padding: 30px 50px;
+}
+
+.feedback__item:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* FOOTER  */
+
+.footer {
+  background-color: black;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer__logo {
+  width: 140px;
+  height: auto;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer__info a {
+  color: #ccc;
+}
+
+.footer__info a:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #999;
+  z-index: 1002;
+}
+
+.preloader__image {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* margin-top: -32px;
+  margin-left: -32px;*/
+  background: url('img/fakeloader__gif.gif') no-repeat 50% 50%;
 }
