@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интернет-магазин "Домик творчества"</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/fakeLoader.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="css/shop.css">
@@ -150,9 +149,9 @@
                     <div class="form">
                       <form class="form__body" id="form" action="#">
                         <div class="form__item">
-                          <label class="form__label" for="finalPrice">Цена с учетом скидки:</label>
-                          <span id="finalPrice" class="form__input form__input-mini"></span><br>
-                        </div>
+                          <label class="form__label label__finalPrice" for="finalPrice">Цена с учетом скидки:</label>
+                          <span  class="form__input form__input-mini" id="finalPrice"></span><br>
+                      </div>
                         <div class="form__item">
                           <label class="form__label" for="formPhone">Телефон</label><br>
                           <input class="form__input _req tel" id="formPhone" type="tel" name="phone"><br>
@@ -290,38 +289,6 @@
           </ul>
       </div>
   </section>
-
-
-
-
-<style>
-    .preloader {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    background-color: #999;
-    z-index: 1002;
-}
-
-.preloader__image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* margin-top: -32px;
-    margin-left: -32px;*/
-    background: url('img/fakeloader__gif.gif') no-repeat 50% 50%;
-}
-</style>
-
-
-
   <footer class="footer">
     <div class="container-main footer__container">
       <img class="footer__logo" src="img/logo.png" alt="logo">
@@ -333,14 +300,13 @@
   </footer>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
-    <script src="js/fakeLoader.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/swiper.js"></script>
     <script src="js/shop-script.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/inputmask.min.js"></script>
     <script src="js/just-validate.min.js"></script>
-    <script src="js/form__validate-script.js"></script>
+    <!-- <script src="js/form__validate-script.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </body>
 </html>

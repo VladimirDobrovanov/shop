@@ -1,7 +1,7 @@
 $(window).on('load', function () {
  setTimeout( function ()  {
   $('.preloader').fadeOut('slow');
-}, 3000); 
+}, 1000); 
 });
 // Массив продуктов
 let productsData = [
@@ -488,6 +488,7 @@ function addToCart(product) {
   saveCartToLocalStorage(cart);
   showCartCount(); // Обновляем отображение красного кружка после добавления товара
   displayCartItems(); // Перерисовываем корзину после добавления товара
+  updateTotalPrice(); // Обновляем итоговую стоимость после добавления товара
 }
 
 // Функция для удаления товара из корзины
@@ -593,6 +594,44 @@ function calculateDiscount(promoCode) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  const validation = new JustValidate('.form', {
+    errorLabelStyle: {
+        color: '#ff7979'
+    }
+});
+const selector = document.querySelector("input[type='tel']");
+const im = new Inputmask("+7 (999)-999-99-99");
+im.mask(selector);
+
+validation
+    .addField('.name', [{
+            rule: 'minLength',
+            value: 6,
+            errorMessage: "Вы не ввели имя"
+        },
+        {
+            rule: 'maxLength',
+            value: 60,
+            errorMessage: "Вы ввели больше чем положено"
+        }
+    ])
+    .addField('.mail', [{
+            rule: 'required',
+            errorMessage: 'Поле нужно заполнить',
+        },
+        {
+            rule: 'email',
+            errorMessage: 'Вы не ввели email',
+        }
+    ])
+    .addField('.tel', [{
+        rule: "function",
+        validator: function (name, value) {
+            const phone = selector.inputmask.unmaskedvalue();
+            return phone.length === 10
+        },
+        errorMessage: 'Вы не ввели телефон',
+    }])
   const form = document.getElementById('form');
   const promoCodeInput = document.getElementById('promoCode');
 
@@ -602,31 +641,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
     let discount = 0;
     let finalPrice = totalPrice;
+    const finalPriceElement = document.getElementById('finalPrice');
+    const labelFinalPriceElement = document.querySelector('.label__finalPrice');
   
     if (promoCodeValue !== '') {
       discount = calculateDiscount(promoCodeValue);
       finalPrice = totalPrice - discount;
-    }
-
-    document.getElementById('finalPrice').textContent = finalPrice + ' руб.';
+      // Обновляем значение finalPriceElement
+    finalPriceElement.textContent = finalPrice + ' руб.';
+    finalPriceElement.style.display = 'block';
+    labelFinalPriceElement.style.display = 'block';
+  } else {
+    finalPriceElement.style.display = 'none';
+    labelFinalPriceElement.style.display = 'none';
+  }
   });
 
   // Обработчик события отправки формы
   form.addEventListener('submit', function(event) {
     event.preventDefault();
+    updateTotalPrice();
     const totalPrice = parseInt(document.getElementById('totalPrice').textContent);
-    if (!validateForm() || totalPrice < 500) {
-      alert('Сумма заказа должна быть не менее 500 рублей');
-      return;
-    }
+    const finalPrice = parseInt(document.getElementById('finalPrice').textContent); 
 
     const discount = calculateDiscount(promoCodeInput.value.trim());
-    const finalPrice = totalPrice - discount;
+    const  finalPriceToSend = totalPrice - discount;
 
     const formData = new FormData(form);
     formData.append('cartItems', JSON.stringify(getCartFromPage()));
     formData.append('discount', discount);
-    formData.append('finalPrice', finalPrice);
+    formData.append('finalPrice', finalPriceToSend);
+    formData.append('promoCode', promoCode);
+    formData.append('finalPriceWithDiscount', finalPrice); 
 
     fetch('./sendmail.php', {
       method: 'POST',
@@ -646,19 +692,6 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Произошла ошибка!', error);
     });
   });
-
-  // Валидация формы
-  function validateForm() {
-    const requiredFields = document.querySelectorAll('._req');
-    return Array.from(requiredFields).every(field => {
-      if (!field.value.trim()) {
-        field.classList.add('error');
-        return false;
-      }
-      field.classList.remove('error');
-      return true;
-    });
-  }
 });
 
     // Получение данных корзины

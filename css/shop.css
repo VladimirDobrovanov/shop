@@ -1091,7 +1091,7 @@ background-color: #69b927;
   right: 0;
   bottom: 0;
   overflow: hidden;
-  background-color: #999;
+  background-color: #bbb753;
   z-index: 1002;
 }
 
@@ -1101,7 +1101,9 @@ background-color: #69b927;
   left: 0;
   width: 100%;
   height: 100%;
-  /* margin-top: -32px;
-  margin-left: -32px;*/
-  background: url('img/fakeloader__gif.gif') no-repeat 50% 50%;
+  background: url('../img/fakeloader.gif') no-repeat 50% 50%;
+}
+
+.label__finalPrice {
+ display: none;
 }

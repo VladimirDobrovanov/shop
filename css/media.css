@@ -350,5 +350,9 @@
   .cart-item-image img {
     width: 100px;
   }
+
+  .preloader__image {
+    background: url('../img/fakeloader-min.gif') no-repeat 50% 50%;
+  }
 }
     

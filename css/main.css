@@ -243,8 +243,8 @@ body {
     right: 0;
     bottom: 0;
     overflow: hidden;
-    background-color: #999;
-    z-index: 1002;
+    background-color: #bbb753;
+    z-index: 1002; 
 }
 
 .preloader__image {
@@ -253,9 +253,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* margin-top: -32px;
-    margin-left: -32px;*/
-    background: url('../img/fakeloader__gif.gif') no-repeat 50% 50%;
+    background: url('../img/fakeloader.gif') no-repeat 50% 50%;
 }
 
   @media (max-width: 1200px) {
@@ -286,9 +284,18 @@ body {
         transform: none;
         z-index: 1000;
       }
-
+      html  {
+        scrollbar-gutter: auto;
+      }
+      
     .front__mobile-img {
         
+    }
+  }
+
+  @media (max-width:390px) {
+    .preloader__image {
+        background: url('../img/fakeloader-min.gif') no-repeat 50% 50%;
     }
   }
 

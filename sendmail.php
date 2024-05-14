@@ -7,6 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $phone = $_POST['phone'];
   $email = $_POST['email'];
   $message = $_POST['message'];
+  $promoCode = $_POST['promoCode'];
+  $finalPrice = $_POST['finalPrice'];
   $cartItems = json_decode($_POST['cartItems'], true);
 
   // Проверка данных формы (можно добавить дополнительную проверку, если нужно)
@@ -27,7 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $mailMessage .= "Индекс: $index<br>";
   $mailMessage .= "Телефон: $phone<br>";
   $mailMessage .= "Email: $email<br>";
+  $mailMessage .= "Промокод:$promoCode<br>";
+  $mailMessage .= "Цена с учетом скидки:$finalPrice<br>";
   $mailMessage .= "Сообщение: $message</p>";
+  
   
   // Добавление элементов корзины в сообщение
   $mailMessage .= "<p>Элементы корзины:</p>";
