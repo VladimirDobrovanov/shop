@@ -311,14 +311,20 @@
         overflow-y: auto;
         transform: none;
         border-radius: 0px;
+        padding: 0;
       }
       .popup__h3 {
+        font-family: "Maki Sans";
         padding-top: 20px;
         padding-left: 20px;
         margin-bottom: 5px;
         font-size: 23px;
-        font-weight: 600;
+        font-weight: 500;
       }
+      .popup__images-container {
+        padding: 0 10px;
+      }
+
       .popup__content-left {
         margin-bottom: 30px;
         padding: 0;

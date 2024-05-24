@@ -396,13 +396,13 @@ body {
   height: 600px;
 }
 .hero__slide__1 {
-  background-image: url(../img/hero__slide-1.JPG);
+  background-image: url(../img/hero__slide-1.jpg);
 }
 .hero__slide__2 {
-  background-image: url(../img/hero__slide-1.JPG);
+  background-image: url(../img/hero__slide-1.jpg);
 }
 .hero__slide__3 {
-  background-image: url(../img/hero__slide-1.JPG);
+  background-image: url(../img/hero__slide-1.jpg);
 }
 .hero__swiper-container {
   height: 600px;
@@ -615,6 +615,7 @@ body {
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 30px;
+    color: #7c9b53;
   }
   
   .popup__button {
@@ -935,6 +936,10 @@ background-color: #69b927;
 .fancybox-content {
   background-color: black;
   padding: 0;
+}
+
+.popup__images-container a:not(:last-child) {
+  margin-right: 10px;
 }
 
 /* FORME  */
