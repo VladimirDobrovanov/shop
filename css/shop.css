@@ -1049,7 +1049,7 @@ background-color: #69b927;
   background-image: url(../img/header-bg.PNG);
   background-size: cover;
   border-radius: 20px;
-  padding: 30px 50px;
+  padding: 30px 15px;
 }
 
 .feedback__item:not(:last-child) {
