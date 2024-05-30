@@ -1112,3 +1112,42 @@ background-color: #69b927;
 .label__finalPrice {
  display: none;
 }
+
+.order__body {
+  background-image: url(../img/order-1920.jpg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.order__back {
+  display: inline-block;
+  margin: 20px;
+}
+
+.order__back-button {
+  font-family: 'Maki Sans';
+  font-size: 18px;
+}
+
+.header__container-for-me {
+  justify-content: center;
+  align-items: center;
+}
+
+.for-me__container-for-me {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.contacts__container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 50px;
+  height: 1000px;
+}
+
+.contacts__list-item {
+  margin-bottom: 20px;
+}
