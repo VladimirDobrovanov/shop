@@ -1,3 +1,15 @@
+function redirectToMobile() {
+    // Регулярное выражение для определения мобильных устройств
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // URL страницы, на которую будет произведен редирект
+        window.location.href = "https://elisa-shop.tw1.ru/shop.html";
+    }
+}
+
+// Вызов функции при загрузке страницы
+window.onload = redirectToMobile;
 $(window).on('load', function () {
     setTimeout( function ()  {
      $('.preloader').fadeOut('slow');

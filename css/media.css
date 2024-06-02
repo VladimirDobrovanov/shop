@@ -1,4 +1,66 @@
+@media (max-width:1345px) {
+  .popup__content {
+    transform: translate(-30%, 20%);
+  }
+}
+
+@media (max-width:1050px) {
+  .popup__content {
+    transform: translate(-15%, 20%);
+    height: 650px;
+  }
+}
+
+@media (max-width:943px) {
+  .popup__content {
+    transform: translate(-4%, 20%);
+  }
+}
+
 @media (max-width:849px) {
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  .popup__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    transform: none;
+    border-radius: 0px;
+    padding: 0;
+  }
+  .popup__h3 {
+    font-family: "Maki Sans";
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    font-size: 23px;
+    font-weight: 500;
+  }
+  .popup__images-container {
+    padding: 0 10px;
+  }
+
+  .popup__content-left {
+    margin-bottom: 30px;
+    padding: 0;
+  }
+  .popup__img {
+    max-width: 100%;
+    height: auto;
+  }
     .navigation__btn {
         padding: 8px 10px;
         font-size: small;
@@ -43,8 +105,8 @@
     }
 
     .navigation__btn {
-        padding: 5px 10px;
-        font-size: 8px;
+        padding: 8px 10px;
+        font-size: 10px;
     }
 }
 
@@ -67,8 +129,8 @@
     }
 
     .buy-button {
-        padding: 5px 8px;
-        font-size: 8px;
+        padding: 9px 8px;
+        font-size: 12px;
     }
 
     .container-main {
@@ -149,6 +211,16 @@
         font-size: 14px;
     }
 
+    .close {
+      border-radius: 10px;
+      font-weight: 600;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: #7c9b53;
+      padding: 7px 14px;
+      background-color: antiquewhite; }
 
 
 }
@@ -201,6 +273,10 @@
     .burger-menu {
         padding: 6px;
     }
+
+    .burger.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -10px);
+  }
     .header__hero-mobile {
         display: block;
       }

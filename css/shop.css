@@ -562,8 +562,9 @@ body {
     flex-direction: row;
     background-color: white;
     top: 0;
-    left: 0;
-    transform: translate(65%, 10%);
+    right: 0;
+    border-right: 0;
+    transform: translate(-72%, 20%);
     width: 800px;
     height: 700px;
     overflow-y: auto;
@@ -637,6 +638,8 @@ body {
   .products.popup-open {
     filter: blur(2px);
   }
+
+  
 
 
   /* CART */
@@ -1059,7 +1062,7 @@ background-color: #69b927;
 /* FOOTER  */
 
 .footer {
-  background-color: black;
+  background-color: #c8bd81;
 }
 
 .footer__container {
@@ -1080,7 +1083,7 @@ background-color: #69b927;
 }
 
 .footer__info a {
-  color: #ccc;
+  color: #6c724c;
 }
 
 .footer__info a:not(:last-child) {
