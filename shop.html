@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интернет-магазин "Домик творчества"</title>
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="icon" href="img/favicon_120x120.png" type="image/x-icon">
+    <link rel="icon" href="img/android-chrome-512x512.png" type="image/x-icon">
+    <link rel="icon" href="img/android-chrome-192x192.png" type="image/x-icon">
+    <link rel="icon" href="img/apple-touch-icon.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="В моём домике ты найдёшь: наклейки и открытки 
+    с моими уютными иллюстрациями✨ украшения ручной работы🗝 новые товары с милыми котиками, брелки, значки
+     и многое другое! 🧵надеюсь тебе понравится мой уголок творчества, заходи на чай! "/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="css/shop.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
 <body>
-  <!-- <div class="fakeLoader"></div> -->
   
   <div class="preloader">
     <div class="preloader__image"></div>
@@ -74,39 +83,26 @@
                 </svg></a>
             </div>
           </div>
-          
-          <div class="menu__container-right">
-            <div class="menu__container-right-nav">
-              <h3 class="menu__list-h3">Категории</h3>
-              <ul class="menu__list">
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="popularButtonBurger">Популярное</button></li>
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="postcardsButtonBurger">Открытки</button></li>
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="stickersButtonBurger">Стикеры</button></li>
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="decoratingButtonBurger">Украшения</button></li>
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="accessoriesButtonBurger">Аксессуары</button></li>
-                <li class="menu__list-item"><button class="btn-reset menu__list-item-btn" id="setsButtonBurger">Наборы</button></li>
-              </ul>
-            </div>
-            <div class="menu__container-right-comm">
-              <h3 class="menu__comm-h3">Партнёрам</h3>
-              <ul class="list-reset menu__comm-list">
-                <li class="menu__comm-item">Условия партнёрства</li>
-                <li class="menu__comm-item">Как связаться</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
       <section class="hero">
         <div class="swiper__hero flex">
           <div class="swiper">
               <div class="swiper-wrapper hero__swiper-container">
-                  <div class="swiper-slide hero__slide__1">       
+                  <div class="swiper-slide hero__slide__1">  
+                    <div class="hero__slide-cont">
+                      <h1 class="hero__slide-heading">Новинки с котиками</h1>
+                      <span class="hero__slide-span">уже в продаже!</span>  
+                    </div>       
                   </div>
                   <div class="swiper-slide hero__slide__2">   
+                    <div class="hero__slide-cont">
+                      <h2 class="hero__slide-heading">Промокод «KOTIA10»</h2>
+                      <span class="hero__slide-span">10% скидка до 20 июня</span>  
+                    </div>   
                   </div>
-                  <div class="swiper-slide hero__slide__3">
-                  </div>    
+                  <!-- <div class="swiper-slide hero__slide__3">
+                  </div>     -->
               </div>
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div>
@@ -146,12 +142,11 @@
                 </div>
                 <div class="cart-summary">
                     <h2>Общая стоимость: <span id="totalPrice">0</span> руб.</h2>
+                    <p class="cart-summary-error">заказ должен быть не менее 500 рублей <br>
+                    информация о стоимости доставки по РФ <a class="cart-summary-error-a" href="delivery.html">тут</a> <br>
+                  </p>
                     <div class="form">
                       <form class="form__body" id="form" action="#">
-                        <div class="form__item">
-                          <label class="form__label label__finalPrice" for="finalPrice">Цена с учетом скидки:</label>
-                          <span  class="form__input form__input-mini" id="finalPrice"></span><br>
-                      </div>
                         <div class="form__item">
                           <label class="form__label" for="formPhone">Телефон</label><br>
                           <input class="form__input _req tel" id="formPhone" type="tel" name="phone"><br>
@@ -169,9 +164,13 @@
                             <input class="form__input form__input-mini _req index" id="formIndex" type="text" name="index"><br>
                         </div>
                         <div class="form__item">
-                          <label class="form__label" for="promoCode">Промокод</label><br>
+                          <label class="form__label" for="promoCode">Промокод (капсом)</label><br>
                           <input class="form__input form__input-mini" id="promoCode" type="text" name="promoCode"><br>
                         </div>
+                        <div class="form__item">
+                          <label class="form__label label__finalPrice" for="finalPrice">Цена с учетом скидки:</label>
+                          <span  class="form__input form__input-mini" id="finalPrice"></span><br>
+                      </div>
                         <div class="form__item">
                           <label class="form__label" for="formEmail">Email</label><br>
                           <input class="form__input _req _email mail" id="formEmail" type="text" name="email"><br>
@@ -195,7 +194,6 @@
                         Не меньше 500р заказ валидация 
                         Информация для комментария "напиши свои пожелания" -->
                         <input class="form__button" id="checkoutButton" type="submit" value="Оформить заказ">
-                        <!-- Окно подтверждения заказа (картинка, "ваш заказ оформлен", письмо с уведомлением придет на почту) -->
                       </form>
                     </div>
                 </div>
@@ -240,7 +238,7 @@
           люблю творчество во&nbsp;многих его проявлениях<br>
           🧵надеюсь тебе понравится мой уголок творчества, заходи на&nbsp;чай!
        </p> 
-       <img class="for-me__img" src="/img/for-me.jpg" alt="фото">
+       <img class="for-me__img" src="/img/for-me.webp" alt="фото">
       </div>
     </div>
     </section>
@@ -298,7 +296,6 @@
     <script src="js/burger.js"></script>
     <script src="js/inputmask.min.js"></script>
     <script src="js/just-validate.min.js"></script>
-    <!-- <script src="js/form__validate-script.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </body>
 </html>

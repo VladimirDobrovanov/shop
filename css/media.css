@@ -19,6 +19,10 @@
 
 @media (max-width:849px) {
 
+  .order__body  {
+    background-image: url(../img/order-mobile.webp);
+  }
+
   .popup {
     display: none;
     position: fixed;
@@ -175,8 +179,8 @@
       }
 
     .cart-count-badge {
-        top: 7px;
-        right: 0px;
+        top: 4px;
+        right: 22px;
     }
     .item__container-cart {
       align-items: flex-end;
@@ -268,6 +272,10 @@
         left: 0;
         width: 100%;
         padding: 20px;
+    }
+
+    .header__container-for-me {
+      padding: 0;
     }
     
     .burger-menu {
@@ -364,9 +372,6 @@
       .menu__link-container {
         margin-bottom: 30px;
       }
-      .menu__container-right {
-        display: none;
-      }
       .popup {
         display: none;
         position: fixed;
@@ -433,8 +438,8 @@
     width: 100px;
   }
 
-  .preloader__image {
+  /* .preloader__image {
     background: url('../img/fakeloader-min.gif') no-repeat 50% 50%;
-  }
+  } */
 }
     

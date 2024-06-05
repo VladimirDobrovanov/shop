@@ -249,13 +249,6 @@ body {
     margin-right: 30px;
   }
 
-  .menu__container-right {
-    display: none;
-  }
-
-  .menu__container-right-nav {
-    margin-right: 30px;
-  }
 
   .menu__link-container {
     margin-bottom: 100px;
@@ -396,13 +389,16 @@ body {
   height: 600px;
 }
 .hero__slide__1 {
-  background-image: url(../img/hero__slide-1.jpg);
+  background-image:linear-gradient(0deg, rgba(48, 64, 89, 0.84) -2.9%, rgba(53, 65, 83, 0) 65.7%), url(../img/hero__slide-1.webp);
+  background-position-y: top;
 }
 .hero__slide__2 {
-  background-image: url(../img/hero__slide-1.jpg);
+  background-image:linear-gradient(0deg, rgba(48, 64, 89, 0.84) -2.9%, rgba(53, 65, 83, 0) 65.7%), url(../img/hero__slide-2.webp);
+  background-position-y: center;
 }
 .hero__slide__3 {
-  background-image: url(../img/hero__slide-1.jpg);
+  background-image: url(../img/hero__slide-3.webp);
+  background-position-y: center;
 }
 .hero__swiper-container {
   height: 600px;
@@ -432,9 +428,28 @@ body {
 .hero__slide__1 , .hero__slide__2 , .hero__slide__3 {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: center;
   height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.hero__slide-cont {
+  display: inline-block;
+  padding: 30px;
+  font-size: 35px;
+  font-family: "Maki Sans";
+  color: rgba(255, 255, 255, 0.90);
+  text-align: center;
+}
+
+.hero__slide-heading , .hero__slide-span {
+  text-shadow: rgba(48, 64, 89, 0.84) 0 2px ; 
+}
+
+
+
 /* NAVIGATION */
 
 .navigation {
@@ -805,6 +820,16 @@ body {
   z-index: 10;
 }
 
+.cart-summary-error {
+  display: inline-block;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-summary-error-a {
+  border-bottom: 1px solid black;
+}
+
 /* FORM */
 
 .form__label {
@@ -1117,7 +1142,7 @@ background-color: #69b927;
 }
 
 .order__body {
-  background-image: url(../img/order-1920.jpg);
+  background-image: url(../img/order-1920.webp);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
@@ -1140,7 +1165,24 @@ background-color: #69b927;
 
 .for-me__container-for-me {
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+.for_me-back {
+  display: inline-block;
+  padding: 20px;
+}
+
+.for_me-back-a {
+  display: block;
+}
+
+.for_me-back-btn {
+  cursor: pointer;
+  color: #000000;
+  padding: 7px 14px;
+  background-color: #dbd2aa;
+  border-radius: 10px;
 }
 
 .contacts__container {
@@ -1154,3 +1196,4 @@ background-color: #69b927;
 .contacts__list-item {
   margin-bottom: 20px;
 }
+

@@ -1,0 +1,41 @@
+User-agent: *
+Disallow: public_html/contacts.html
+Disallow: public_html/delivery.html
+Disallow: public_html/feedback.html
+Disallow: public_html/for_me.html
+Disallow: public_html/sendmail.php
+Disallow: public_html/order_confirmation.html
+Disallow: public_html/libs/*
+Crawl-delay: 0.5
+
+User-agent: GoogleBot
+Disallow: public_html/contacts.html
+Disallow: public_html/delivery.html
+Disallow: public_html/feedback.html
+Disallow: public_html/for_me.html
+Disallow: public_html/sendmail.php
+Disallow: public_html/order_confirmation.html
+Disallow: public_html/libs/*
+Allow: /**/*.css
+Allow: /**/*.js
+Allow: /**/*.png
+Allow: /**/*.webp
+Allow: /**/*.gif
+Crawl-delay: 0.5
+
+User-agent: Yandex
+Disallow: public_html/contacts.html
+Disallow: public_html/delivery.html
+Disallow: public_html/feedback.html
+Disallow: public_html/for_me.html
+Disallow: public_html/sendmail.php
+Disallow: public_html/order_confirmation.html
+Disallow: public_html/libs/*
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.gif
+Crawl-delay: 0.5
+
+Host: https://shop.elisaillustrator.ru/shop.html

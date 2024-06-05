@@ -2,8 +2,10 @@ const swiper = new Swiper('.swiper', {
     slidesPerView: 1,
     loop: true,
     autoplay: {
-        delay: 10000,
+        delay: 5000,
       },
+      speed: 1000,
+      effect: 'fade',
     // пагинация
     pagination: {
     el: '.swiper-pagination',

@@ -4,7 +4,7 @@ function redirectToMobile() {
     
     if (isMobile) {
         // URL страницы, на которую будет произведен редирект
-        window.location.href = "https://elisa-shop.tw1.ru/shop.html";
+        window.location.href = "https://shop.elisaillustrator.ru/shop.html";
     }
 }
 
